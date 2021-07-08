@@ -1,0 +1,127 @@
+<nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-light navbar-shadow">
+    <div class="navbar-wrapper">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+
+                <li class="nav-item mobile-menu hidden-md-up float-xs-left">
+                    <a class="nav-link nav-menu-main menu-toggle hidden-xs">
+                        <span class="lnr lnr-menu hamburger"></span>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="width:100%">
+                    <div class="logo-wrap">
+                        <a [routerLink]="['/backoffice']" class="navbar-brand nav-link">
+                            <img alt="branding logo" src="assets/img/logo-black.png" class="brand-logo">
+                        </a>
+                    </div>
+
+                </li>
+
+                <li class="nav-item hidden-md-up float-xs-right" style="display: inline-block;position: absolute;top: 15px;right: 10px;">
+                    <a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container hidden-xs">
+                        <span class="lnr lnr-user" style="font-size: 18pt;"></span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="navbar-container content container-fluid">
+            <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+
+                <ul class="nav navbar-nav float-xs-right">
+
+                    <!---------  Notification ----------->
+
+                    <li class="dropdown dropdown-notification nav-item" style="width: 67px;">
+
+                        <a href="javascript:void(0);" data-toggle="dropdown" class="nav-link nav-link-label">
+                            <span class="lnr lnr-envelope" style="font-size: 30px;"></span>
+                            <span class="tag tag-pill tag-default tag-danger tag-default tag-up"></span>
+                        </a>
+
+                    </li>
+
+                    <!--------- User Profile ----------->
+
+                    <li class="dropdown dropdown-user nav-item">
+
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+                            <span class="user-name" style="margin-top:13%;">Hello, {{user?.name}}</span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a [routerLink]="['/backoffice/profile']" class="dropdown-item"><i class="icon-power3"></i> My profile</a>
+                            <a href="javascript:void(0);" class="dropdown-item" (click)="logout($event)"><i class="icon-power3"></i> Logout</a>
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- main menu-->
+<div data-scroll-to-active="true" class="main-menu menu-light menu-accordion menu-shadow">
+    <div class="main-menu-header"></div>
+    <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+
+            <li class="nav-item active">
+                <a [routerLink]="['/backoffice']">
+                    <span class="lnr lnr-home"></span>
+                    <span class="menu-title">Home</span>
+                </a>
+            </li>
+
+            <!--<li class="nav-item">
+                <a href="javascript:void(0);">
+                    <span class="lnr lnr-users"></span>
+                    <span class="menu-title">Registered Prospect</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);">
+                    <span class="lnr lnr-file-add"></span>
+                    <span class="menu-title">Submission</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);">
+                    <span class="lnr lnr-graduation-hat"></span>
+                    <span class="menu-title">Onboard Agent</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);">
+                    <span class="lnr lnr-book"></span>
+                    <span class="menu-title">Presentation Library</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="javascript:void(0);">
+                    <span class="lnr lnr-calendar-full"></span>
+                    <span class="menu-title">Event Management</span>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<!-- / main menu-->
+
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row"> </div>
+        <div class="content-body">
+
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+</div>

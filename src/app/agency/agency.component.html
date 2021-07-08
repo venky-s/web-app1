@@ -1,0 +1,99 @@
+<nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-light navbar-shadow">
+    <div class="navbar-wrapper">
+        <div class="navbar-container content container-fluid">
+            <div id="navbar-mobile" class="/*collapse*/ navbar-toggleable-sm">
+                <ul class="nav navbar-nav">
+
+                    <!--------- User Profile ----------->
+
+                    <li class="dropdown dropdown-user nav-item float-xs-right">
+
+                        <a href="javascript:void(0);" class="nav-link" (click)="openProfile()">
+                            <span style="margin-right: 10px;">Register</span><span class="qr"><img src="assets/icon/qr-icon-40.png" title="{{user?.name}}"></span>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="app-content container-fluid">
+    <div class="content-wrapper">
+        <div class="content-header row"> </div>
+        <div class="content-body">
+
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content v2">
+
+            <div class="modal-body" style="text-align: center;">
+
+                <div class="space1"></div>
+
+                <h3 class="subHead">Prospect Registration</h3>
+                <p class="subHead">All the registration through this QR will display on your recruitment section</p>
+
+                <div class="space1"></div>
+                <h5 class="subHead">Registration option</h5>
+                <ul id="tabSwitch" class="nav nav-pills nav-justified">
+                    <li class="nav-item tab-switch left active" data-target="panel-qr">
+                        <a id="b-panel-qr" href="javascript:void(0);">Scan QR</a>
+                    </li>
+                    <li class="nav-item tab-switch right" data-target="panel-link">
+                        <a id="b-panel-link" href="javascript:void(0);">Send Link</a>
+                    </li>
+                </ul>
+
+                <div class="space1"></div>
+                <div>
+                    <div id="panel-qr">
+                        <div class="profile-qr">
+                            <a [href]=userProfile?.QRImage64 download="qrid.png">
+                                <img [src]=userProfile?.QRImage64 alt="avatar">
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <span class="lnr lnr-download" style="margin-right: 5px;"></span>Download
+                                </div>
+                            </a>
+                        </div>
+                        <div class="space1"></div>
+                        <div class="btnMax" style="text-align: center;">
+                            <button class="btn btn-warning btn-login" data-dismiss="modal" data-toggle="modal" style="width: 60%;">
+                                Done
+                            </button>
+                        </div>
+                    </div>
+                    <div id="panel-link" style="display: none;">
+                        <div style="word-wrap: break-word;">
+                            <span class="lnr lnr-link" style="margin-right: 5px;"></span>
+                            <a [href]=userProfile?.QRUidUrl>
+                                {{userProfile?.QRUidUrl}}
+                            </a>
+                        </div>
+                        
+                        <div class="space1"></div>
+                        <div class="form-group form-gap">
+                            <span id="msgError" class="error-login" style="display:none;">{{sendQrMsg}}</span>
+                            <input type="text" id="prospectEmail" name="prospectEmail" class="form-control" placeholder="Email address" [(ngModel)]="prospectEmail" />
+                        </div>
+                        <div class="btnMax" style="text-align: center;">
+                            
+                            <button class="btn btn-warning btn-login" style="width: 60%;" (click)="sendQR($event)">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

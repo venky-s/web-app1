@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.328" height="21" viewBox="0 0 21.328 21">
+  <g id="Group_3350" data-name="Group 3350" transform="translate(15467 413)">
+    <rect id="Rectangle_2239" data-name="Rectangle 2239" width="20" height="17" rx="4" transform="translate(-15467 -409)" fill="#fff"/>
+    <g id="Group_3349" data-name="Group 3349" transform="translate(-15522 -993.5)">
+      <g id="Group_2573" data-name="Group 2573" transform="translate(55 580.5)">
+        <g id="Rectangle_61" data-name="Rectangle 61" transform="translate(0 2.986)" fill="none" stroke="#007885" stroke-width="2">
+          <rect width="21.328" height="17.916" rx="3" stroke="none"/>
+          <rect x="1" y="1" width="19.328" height="15.916" rx="2" fill="none"/>
+        </g>
+        <line id="Line_448" data-name="Line 448" x2="20.475" transform="translate(0.427 8.531)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_452" data-name="Line 452" x2="20.475" transform="translate(0.427 14.503)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_449" data-name="Line 449" y2="11.944" transform="translate(5.545 8.531)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_453" data-name="Line 453" y2="4.266" transform="translate(5.545)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_454" data-name="Line 454" y2="4.266" transform="translate(15.783)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_450" data-name="Line 450" y2="11.944" transform="translate(10.664 8.531)" fill="none" stroke="#007885" stroke-width="2"/>
+        <line id="Line_451" data-name="Line 451" y2="11.944" transform="translate(15.783 8.531)" fill="none" stroke="#007885" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
