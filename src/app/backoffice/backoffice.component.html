@@ -31,7 +31,7 @@
 
                 <ul class="nav navbar-nav float-xs-right">
 
-                    <!---------  Notification ----------->
+                    <!---------  Notification ---------->
 
                     <li class="dropdown dropdown-notification nav-item" style="width: 67px;">
 
@@ -42,7 +42,7 @@
 
                     </li>
 
-                    <!--------- User Profile ----------->
+                    <!--------- User Profile ---------->
 
                     <li class="dropdown dropdown-user nav-item">
 
@@ -69,14 +69,14 @@
     <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
 
-            <li class="nav-item active">
-                <a [routerLink]="['/backoffice']">
-                    <span class="lnr lnr-home"></span>
-                    <span class="menu-title">Home</span>
+            <li class="nav-item" *ngFor="let nav of menuList">
+                <a [routerLink]="nav.menuLink">
+                    <span class="lnr {{nav.menuStyle}}"></span>
+                    <span class="menu-title">{{nav.menuText}}</span>
                 </a>
             </li>
-
-            <!--<li class="nav-item">
+<!--       <a [routerLink]="['/backoffice']">
+            <li class="nav-item">
                 <a href="javascript:void(0);">
                     <span class="lnr lnr-users"></span>
                     <span class="menu-title">Registered Prospect</span>

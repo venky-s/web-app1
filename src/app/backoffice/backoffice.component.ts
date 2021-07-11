@@ -19,7 +19,15 @@ export class BackofficeComponent implements OnInit, AfterViewInit, OnDestroy {
   public user: User | undefined;
 
   constructor(private router: Router, private feraService: FeraService, private script: ScriptService) { }
-
+  menuList = [
+    { menuText: "Home", menuLink: "/backoffice", menuStyle: "lnr-home" },
+    { menuText: "Registered Prospect", menuLink: "./", menuStyle: "lnr-users" },
+    { menuText: "Submission", menuLink: "./", menuStyle: "lnr-file-add" },
+    { menuText: "Onboard Agent", menuLink: "./", menuStyle: "lnr-graduation-hat" },
+    { menuText: "Presentation Library", menuLink: "./", menuStyle: "lnr-book" },
+    { menuText: "Event Management", menuLink: "./", menuStyle: "lnr-calendar-full" },
+    { menuText: "Approvals", menuLink: "./", menuStyle: "lnr-users" }
+  ];
   ngOnInit(): void {
     document.body.setAttribute('data-open', 'click');
     document.body.setAttribute('data-menu', 'vertical-menu');
@@ -30,7 +38,9 @@ export class BackofficeComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log('script loaded ', data);
     }).catch(error => console.log(error));
 
-    this.feraService.getAuthorizeBackoffice(this.AuthorizeBackoffice);
+    //this.feraService.getAuthorizeBackoffice(this.AuthorizeBackoffice);
+    let jwt: IdTokenJWT = {nameid: "100", unique_name: "Test User", role: "Dev"}
+    this.user = new User("100", "Test User");
   }
 
   AuthorizeBackoffice = (success: boolean): void => {
