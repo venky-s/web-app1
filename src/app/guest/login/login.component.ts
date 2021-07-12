@@ -1,34 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeraService } from '../../fera.service';
+import { FeraService } from '../../../service/fera.service';
+import { SessionService } from '../../../service/session.service'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  constructor(private router: Router, private feraService: FeraService) { }
+export class LoginComponent {
+  constructor(private router: Router, private feraService: FeraService, private session: SessionService) {
+    var $this = this;
 
-  ngOnInit(): void {
-    var params = new URLSearchParams(location.search);
+    window.onload = function() {
+      var params = new URLSearchParams(location.search);
 
-    let authCode = params.get('AuthCode');
-    if (authCode === undefined || authCode === null || authCode.length == 0) {
+      let authCode = params.get('AuthCode');
+      if (authCode === undefined || authCode === null || authCode.length == 0) {
+        $this.router.navigateByUrl('/');
+        return;
+      }
+
+      $this.feraService.getToken(authCode, $this.Login, true);
+    };
+  }
+
+  Login = (idToken: string): void => {
+    if (idToken === undefined || idToken === null || idToken.length == 0) {
       this.router.navigateByUrl('/');
       return;
     }
-
-    this.feraService.getToken(authCode, this.Login);  
-  }
-
-  Login = (success: boolean): void => {
-    if (success) {
-      this.feraService.getAuthorize(this.Authorize);
-      return;
-    }
-
-    this.router.navigateByUrl('/');
+    
+    this.session.login(idToken);
+    this.feraService.getAuthorize(this.Authorize, true);
   }
 
   Authorize = (id: number): void => {

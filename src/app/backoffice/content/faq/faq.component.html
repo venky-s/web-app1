@@ -1,0 +1,192 @@
+<header id="search-section" class="row">
+    <div class="col-lg-10 col-md-8 col-sm-8">
+        <div class="select-wrap">
+            <label for="searchKeywords">Search by FAQ question</label>
+            <input id="searchKeywords" type="text" placeholder="Enter keywords here..." (input)="onSearchTextChange($event)">
+            <span class="lnr lnr-cross clear-button" style="display: none;" (click)="clearSearthText($event)"></span>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-sm-4">
+        <div class="select-wrap">
+            <label>Sort by</label>
+            <select id="sorting">
+                <option value="1">Recent created</option>
+                <option value="0">Oldest created</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<div id="result-pane">
+    <div id="action-pane">
+        <button class="btn btn-main" data-toggle="modal" data-target="#faqAddNew"><span class="fa fa-plus"></span>Add New FAQ</button>
+        <button class="btn btn-warning" (click)="search()"><span class="fa fa-search"></span>Search</button>
+    </div>
+
+    <div class="clear-float"></div>
+
+    <ul id="list-menu" class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="javascript:void(0);" class="nav-link active" data-faq-list="active" (click)="activeList()">Active</a>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0);" class="nav-link" data-faq-list="archived" (click)="archivedList()">Archived</a>
+        </li>
+    </ul>
+
+    <div class="list-container">
+        <div class="count-result" *ngIf="list === null">Empty search. Please press search for more result.</div>
+        <div class="count-result" *ngIf="list !== null">Total <span class="count">{{listCount}}</span> FAQ found</div>
+        <div class="listing container-fluid">
+            <div class="list-item row" *ngFor="let item of list; index as i">
+                <div class="col-lg-10 col-md-8 col-sm-12">
+                    <div><span>{{i+1}}</span></div>
+                    <div>
+                        <span>Q: {{item.question}}</span>
+                        <span>A: {{item.answer}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-12">
+                    <div>
+                        <span>Created date</span>
+                        <span>Created by</span>
+                        <span>Updated on</span>
+                    </div>
+                    <div>
+                        <span>{{item.createdDate}}</span>
+                        <span>{{item.createdBy}}</span>
+                        <span>{{item.UpdatedDate || '-'}}</span>
+                    </div>
+                    <div class="dropdown" *ngIf="!item.isArchived">
+                        <a href="javascript:void(0);" id="item{{i+1}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-ellipsis-h"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="'item'+(i+1)">
+                            <a href="javascript:void(0);" class="dropdown-item" (click)="edit(item)">Edit</a>
+                            <a href="javascript:void(0);" class="dropdown-item" (click)="archive(item)">Move to Archive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal in" id="faqAddNew" data-easein="fadeIn" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="faqAddNewLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form [formGroup]="addNewForm" class="was-validated" (ngSubmit)="addNew()" novalidate>
+                    <div class="modal-header">
+                        <h5 id="faqAddNewLabel" class="subHead alignLeft">Create New FAQ</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="addNewErrMsg" class="action-msg warning" style="display:none;">{{addNewErrMsg}}</div>
+
+                        <h6 class="subHead alignLeft">Question<span class="fa fa-asterisk warning"></span></h6>
+                        <textarea class="form-control formMargin" formControlName="question" required></textarea>
+                        <div class="field-msg valid" *ngIf="addNewForm.get('question')?.valid">
+                            &nbsp;
+                        </div>
+                        <div class="field-msg warning" *ngIf="addNewForm.get('question')?.errors?.required">
+                            Question is required.
+                        </div>
+
+                        <h6 class="subHead alignLeft">Answer<span class="fa fa-asterisk warning"></span></h6>
+                        <textarea class="form-control formMargin" rows="5" formControlName="answer" required></textarea>
+                        <div class="field-msg valid" *ngIf="addNewForm.get('answer')?.valid">
+                            &nbsp;
+                        </div>
+                        <div class="field-msg warning" *ngIf="addNewForm.get('answer')?.errors?.required">
+                            Answer is required.
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-warning btn-login" type="submit" [disabled]="!addNewForm.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal in" id="faqEdit" data-easein="fadeIn" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="faqEditLabel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form [formGroup]="editForm" class="was-validated" (ngSubmit)="update()" novalidate>
+                    <div class="modal-header">
+                        <h5 id="faqEditLabel" class="subHead alignLeft">Edit FAQ</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="editErrMsg" class="action-msg warning" style="display:none;">{{editErrMsg}}</div>
+
+                        <h6 class="subHead alignLeft">Question<span class="fa fa-asterisk warning"></span></h6>
+                        <textarea class="form-control formMargin" formControlName="question" required></textarea>
+                        <div class="field-msg valid" *ngIf="editForm.get('question')?.valid">
+                            &nbsp;
+                        </div>
+                        <div class="field-msg warning" *ngIf="editForm.get('question')?.errors?.required">
+                            Question is required.
+                        </div>
+
+                        <h6 class="subHead alignLeft">Answer<span class="fa fa-asterisk warning"></span></h6>
+                        <textarea class="form-control formMargin" rows="5" formControlName="answer" required></textarea>
+                        <div class="field-msg valid" *ngIf="editForm.get('answer')?.valid">
+                            &nbsp;
+                        </div>
+                        <div class="field-msg warning" *ngIf="editForm.get('answer')?.errors?.required">
+                            Answer is required.
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-warning btn-login" type="submit" [disabled]="!editForm.valid">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="faqMessage" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                    <!-- <div class="iconWrapper v2">
+                    <img src="assets/icon/login/success.svg">
+                </div> -->
+
+                    <h4 class="subHead alignLeft">{{faqDialogMsg}}</h4>
+
+                    <div class="btnMax">
+                        <button class="btn btn-warning" data-dismiss="modal" data-toggle="modal">Done</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="faqConfirm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                    <h4 class="subHead alignLeft">Are you sure to archive this FAQ?</h4>
+
+                    <div class="btnTwo">
+                        <button class="btn btn-secondary" data-dismiss="modal" data-toggle="modal">cancel</button>
+                        <button class="btn btn-warning" (click)="confirmArchive(archiveId)">Confirm</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

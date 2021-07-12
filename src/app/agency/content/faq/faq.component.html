@@ -1,0 +1,11 @@
+<div class="list-container">
+    <div class="listing container-fluid">
+        <div class="list-item row" *ngFor="let item of list; index as i">
+            <div><span>{{i+1}}</span></div>
+            <div>
+                <span>Q: {{item.question}}</span>
+                <span>A: {{item.answer}}</span>
+            </div>
+        </div>
+    </div>
+</div>

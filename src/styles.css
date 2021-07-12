@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "MetaPro";
+    src: url('assets/fonts/MetaPro-Normal.otf');
+}
+
+@font-face {
+    font-family: "MetaProBold";
+    src: url('assets/fonts/MetaPro-Bold.otf');
+}
+
+html,
+body {
+    min-height: 100vh;
+    font-family: "MetaPro";
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+section {
+    margin: 35px 0px;
+}
+
+.btn-main {
+    color: #fff;
+    background-color: #007885;
+    border-color: #007885;
+}
+
+.btn-main:hover {
+    color: #fff;
+}
+
+.btnMax {
+    max-width: 100%;
+    margin: auto;
+}
+
+.btnTwo {
+    display: flex;
+}
+
+.btnTwo>button {
+    margin: 50px 10px 10px 10px;
+}
+
+.space1 {
+    height: 20px;
+}
+
+.space2 {
+    height: 10px;
+}
+
+.alignLeft {
+    text-align: left !important;
+}
+
+h5.subHead {
+    font-family: "MetaProBold";
+    text-align: center;
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+h4.subHead {
+    font-family: "MetaProBold";
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+h5.subHead {
+    font-family: "MetaProBold";
+    text-align: center;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+h6.subHead {
+    font-family: "MetaProBold";
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.clear-float {
+    clear: both;
+}
+
+.formMargin {
+    margin: 10px 0px;
+}
+
+.form-control {
+    padding: 13px 10px;
+    font-size: 14px;
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+div.modal-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 99vh;
+    background-color: #fff;
+    z-index: 1040;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* checkmark */
+
+label.checkmark {
+    border: 1px solid #C5C5C5;
+    border-radius: 15px;
+    padding-right: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+label.checkmark input[type=checkbox]:first-child {
+    opacity: 0;
+}
+
+label.checkmark.checked {
+    background-color: #ffbf00;
+}
+
+label.checkmark input[type=checkbox]:first-child+.check {
+    text-indent: -999999px;
+    width: 15px;
+    display: inline-block;
+}
+
+label.checkmark input[type=checkbox]:first-child:focus+.check {
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    /* Adding a light border */
+    color: #000;
+    /* Taking the difference out of the padding */
+}
+
+label.checkmark input[type=checkbox]:first-child:checked+.check {
+    text-indent: 0;
+}
+
+
+/* radiomark */
+
+label.radiomark {
+    border: 1px solid #C5C5C5;
+    border-radius: 15px;
+    padding-right: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+label.radiomark input[type=radio]:first-child {
+    opacity: 0;
+}
+
+label.radiomark.checked {
+    background-color: #ffbf00;
+}
+
+label.radiomark input[type=radio]:first-child+.check {
+    text-indent: -999999px;
+    width: 15px;
+    display: inline-block;
+}
+
+label.radiomark input[type=radio]:first-child:focus+.check {
+    /* Set something to make the badge looks focused */
+    /* This really depends on the application, in my case it was: */
+    /* Adding a light border */
+    color: #000;
+    /* Taking the difference out of the padding */
+}
+
+label.radiomark input[type=radio]:first-child:checked+.check {
+    text-indent: 0;
+}
+
+.fa.warning {
+    margin-left: 3px;
+    font-size: 8px;
+    color: #a94442;
+    vertical-align: text-top;
+}
+
+.action-msg {
+    text-align: center;
+    font-size: 12px;
+}
+
+.field-msg {
+    font-size: 10px;
+}
+
+.valid {
+    color: #42A948;
+}
+
+.warning {
+    color: #a94442;
+}
+
+input:optional,
+textarea:optional {
+    border-color: #ced4da !important;
+    background-image: none !important;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #a94442;
+}

@@ -1,16 +1,16 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeraService } from '../fera.service';
+import { FeraService } from '../../service/fera.service';
 import jwt_decode from 'jwt-decode';
-import { User, UserProfile } from '../User';
-import { IdTokenJWT } from '../IdTokenJWT';
+import { User, UserProfile } from '../../models/User';
+import { IdTokenJWT } from '../../models/IdTokenJWT';
 
 declare var $: any;
 
 @Component({
   selector: 'app-agency',
   templateUrl: './agency.component.html',
-  styleUrls: ['./agency.component.scss']
+  styleUrls: ['./agency.component.css']
 })
 export class AgencyComponent implements OnInit, AfterViewInit {
   user: User | undefined;
@@ -23,7 +23,9 @@ export class AgencyComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    let res = this.feraService.getAuthorizeAgency(this.AuthorizeAgency);
+    //let res = this.feraService.getAuthorizeAgency(this.AuthorizeAgency, true);
+    let jwt: IdTokenJWT = {nameid: "100", unique_name: "Test User", role: "Dev"}
+    this.user = new User("100", "Test User");
   }
 
   ngAfterViewInit(): void {
@@ -65,16 +67,16 @@ export class AgencyComponent implements OnInit, AfterViewInit {
   }
 
   openProfile(): void {
-    this.feraService.getProfile(this.BindProfile);
+    this.feraService.getProfile(this.BindProfile, true);
   }
 
   sendQR(event: MouseEvent): void {
     $('#msgError').hide();
     this.sendQrMsg = '';
-    this.feraService.sendEmail(this.prospectEmail, this.sendQRResult);
+    this.feraService.emailQRUId(this.prospectEmail, this.sendQRUIdResult, true);
   }
 
-  sendQRResult = (success: boolean) => {
+  sendQRUIdResult = (success: boolean) => {
     if (success) {
       this.sendQrMsg = 'Success';
       $('#msgError').show();

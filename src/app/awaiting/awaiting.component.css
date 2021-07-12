@@ -1,0 +1,18 @@
+.loading-spinner {
+    background-color: #0000001f;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    z-index: 1500;
+}
+
+.svg-loader {
+    height: 20vmin;
+    padding: 3vmin 20vmin;
+    vertical-align: top;
+}

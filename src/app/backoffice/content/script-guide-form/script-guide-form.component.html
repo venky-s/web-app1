@@ -1,0 +1,122 @@
+<div class="modal-full">
+    <header>
+        <div class="navbar-brand">
+            <img alt="branding logo" src="assets/img/logo-black.png" class="brand-logo">
+            <div class="splitter"></div>
+            <span class="subtitle">FERA Backoffice</span>
+        </div>
+
+        <div class="navbar-title float-center">
+            <span>{{formTitle}}</span>
+        </div>
+
+        <div class="navbar-exit float-xs-right">
+            <a class="exit" [routerLink]="['/backoffice/content/script-guide']"><span class="lnr lnr-cross"></span>Exit</a>
+        </div>
+    </header>
+
+    <main>
+        <form [formGroup]="scriptGuideForm" class="was-validated" (ngSubmit)="submit()" novalidate>
+            <div class="space1"></div>
+            <h5>Script Guide Details</h5>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Title<span class="fa fa-asterisk warning"></span></h6>
+            <input type="text" class="form-control formMargin" formControlName="title" required />
+            <div class="field-msg valid" *ngIf="scriptGuideForm.get('title')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="scriptGuideForm.get('title')?.errors?.required">
+                Title is required.
+            </div>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Description</h6>
+            <textarea class="form-control formMargin" rows="3" formControlName="description" optional></textarea>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Business Channels<span class="fa fa-asterisk warning"></span></h6>
+            <div>
+                <label for="cbxELIB" class="checkmark"><input type="checkbox" id="cbxELIB" name="business-channel" (change)="onChange($event)" value="1" required /><span class="check">&#10003;</span>ELIB</label>
+                <label for="cbxEFTB" class="checkmark"><input type="checkbox" id="cbxEFTB" name="business-channel" (change)="onChange($event)" value="2" required /><span class="check">&#10003;</span>EFTB</label>
+                <!-- <label for="cbxEGIB" class="checkmark"><input type="checkbox" id="cbxEGIB" name="business-channel" (change)="onChange($event)" value="4" /><span class="check">&#10003;</span>EGIB</label>
+                <label for="cbxEGTB" class="checkmark"><input type="checkbox" id="cbxEGTB" name="business-channel" (change)="onChange($event)" value="8" /><span class="check">&#10003;</span>EGTB</label> -->
+            </div>
+            <div class="field-msg valid" *ngIf="scriptGuideForm.get('businessChannel')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="scriptGuideForm.get('businessChannel')?.errors?.required">
+                Business Channels is required.
+            </div>
+
+            <h6 class="subHead alignLeft">Language<span class="fa fa-asterisk warning"></span></h6>
+            <div>
+                <label for="radEnglish" class="radiomark"><input type="radio" id="radEnglish" name="language" formControlName="language" value="1" required /><span class="check">&#10003;</span>English</label>
+                <label for="radMalay" class="radiomark"><input type="radio" id="radMalay" name="language" formControlName="language" value="2" required /><span class="check">&#10003;</span>Malay</label>
+            </div>
+            <div class="field-msg valid" *ngIf="scriptGuideForm.get('language')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="scriptGuideForm.get('language')?.errors?.required">
+                Language is required.
+            </div>
+
+            <ng-container *ngIf="scriptGuideForm.get('uploadedFileName')?.value !==undefined && scriptGuideForm.get('uploadedFileName')?.value !==null">
+                <h6 class="subHead alignLeft">Script guide file</h6>
+                <div class="uploaded-file">
+                    <a [href]="environment.feraApiPath + '/file/' + scriptGuideForm.get('uploadedFileId').value" download="{{scriptGuideForm.get('uploadedFileName').value}}">
+                        <div class="imgContainer">
+                            <img [src]="[scriptGuideForm.get('uploadedFileId')?.value === undefined || scriptGuideForm.get('uploadedFileId')?.value === null ? environment.feraUiPath + '/assets/img/no-thumbnail-file.png' : environment.feraApiPath + '/thumbnail/' + scriptGuideForm.get('uploadedFileId').value]"
+                            />
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <span class="fa fa-file"></span>{{scriptGuideForm.get('uploadedFileName').value}}
+                        </div>
+                    </a>
+                </div>
+                <div class="space2"></div>
+            </ng-container>
+
+            <div class="space1"></div>
+            <div class="space1"></div>
+            <h6 class="subHead alignLeft">Upload file<span class="fa fa-asterisk warning"></span></h6>
+            <input id="file-upload" type="file" class="form-control file-input" (change)="onFileSelected($event)" #fileUpload />
+            <label class="file-upload" for="file-upload">
+                {{getFileName()}}
+                <button type="button" class="upload-btn" (click)="fileUpload.click()">
+                    <span class="lnr lnr-paperclip"></span>
+                </button>
+            </label>
+            <div class="field-msg valid" *ngIf="scriptGuideForm.errors?.fileRequired === null">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="scriptGuideForm.errors?.fileRequired">
+                Please upload a file.
+            </div>
+
+            <div class="space1"></div>
+            <button class="btn btn-warning" [disabled]="!scriptGuideForm.valid">Submit</button>
+        </form>
+    </main>
+</div>
+
+<div class="modal fade" id="scriptFormMessage" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <!-- <div class="iconWrapper v2">
+                <img src="assets/icon/login/success.svg">
+            </div> -->
+
+                <h4 class="subHead alignLeft">{{scriptFormDialogMsg}}</h4>
+
+                <div class="btnMax">
+                    <button class="btn btn-warning" data-dismiss="modal" data-toggle="modal" (click)="close()">Done</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.list-container {
+    padding: 10px 0 15px 0;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+}
+
+.listing .list-item {
+    background-color: #fff;
+    border-radius: 7px;
+    margin: 5px 0;
+    padding: 10px 15px;
+}
+
+.listing .list-item>div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.listing .list-item>div:first-child {
+    margin-right: 20px;
+}
+
+.listing .list-item>div:first-child span {
+    background-color: #f2f2f2;
+    padding: 0 8px;
+    height: 0;
+}
+
+.listing .list-item>div:nth-child(2)>span {
+    display: block;
+}
+
+.listing .list-item>div:nth-child(2)>span:nth-child(2) {
+    color: #6DC6BE;
+}
+
+.row {
+    flex-wrap: nowrap;
+}
+
+@media (max-width:768px) {
+    .listing .list-item {
+        padding: 10px 5px;
+    }
+    .listing .list-item>div:nth-child(2) {
+        display: block;
+        width: 100%;
+    }
+}

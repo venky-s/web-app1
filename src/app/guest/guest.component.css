@@ -1,0 +1,133 @@
+.bold {
+    font-family: "MetaProBold";
+}
+
+.higlight {
+    color: #FFBF00;
+}
+
+.page-title {
+    font-family: "MetaProBold";
+    font-size: 2.2rem;
+    color: #3a3a3a;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+}
+
+.wrapper>div:first-child {
+    background-image: url(../../assets/img/fera-bg.png);
+    background-color: #cccccc;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+}
+
+.wrapper>div:nth-child(2) {
+    width: 45%;
+}
+
+.login-section-inner-wrapper {
+    padding: 4em 3em;
+}
+
+.login-section-inner-wrapper-bottom {
+    padding: 0 3em 4em 3em;
+}
+
+.logo {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 85px;
+}
+
+.caption {
+    font-family: "MetaPro";
+    color: #767676;
+    margin-top: 1rem;
+    font-size: 14px;
+}
+
+.margin {
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    padding: 13px 10px;
+    font-size: 14px;
+    max-width: 400px;
+}
+
+.foot-note {
+    color: #707070;
+    font-size: 13px;
+}
+
+.error-login {
+    color: red;
+    font-size: 13px;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+.form-gap {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .wrapper {
+        margin-right: 0;
+        margin-left: 0;
+        height: 100%;
+    }
+    .wrapper>div:first-child {
+        display: none;
+    }
+    .wrapper>div:nth-child(2) {
+        width: 100%;
+    }
+    body {
+        background-image: url("../../assets/img/bg.png");
+        background-color: #ffc107;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    .login-section-inner-wrapper {
+        background-color: #fff;
+        padding: 10%;
+        border-radius: 5px;
+        width: 90%;
+    }
+    .logo-mobile {
+        display: block;
+        margin-bottom: 35px;
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .page-title {
+        font-family: "MetaProBold";
+        font-size: 1.4rem;
+    }
+    .logo-mobile {
+        width: 90px;
+    }
+    .margin {
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    .login-section {
+        padding: 0em;
+    }
+}

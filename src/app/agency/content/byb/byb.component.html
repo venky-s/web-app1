@@ -1,0 +1,59 @@
+<div id="search">
+    <div>
+
+    </div>
+    <div id="sortby">
+        <label>Sort by</label>
+        <select id="sorting" (change)="search()">
+            <option value="1">Latest</option>
+            <option value="0">Oldest</option>
+        </select>
+    </div>
+    <div id="career">
+        <label>Career</label>
+        <select id="career-segment" (change)="search()">
+            <option value="0">All</option>
+            <option value="1">Fresh graduates</option>
+            <option value="2">Professional</option>
+            <option value="3">Self employed</option>
+            <option value="4">Working Adult</option>
+        </select>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+<div class="list-container">
+    <div class="count-result">Total <span class="count">{{listCount}}</span> content found</div>
+    <div class="listing container-fluid">
+        <div class="list-item row" *ngFor="let item of list; index as i">
+            <div class="col-lg-11 col-md-12">
+                <div><span>{{i+1}}</span></div>
+                <div><img [src]="[getThumbnail(item)]" /></div>
+                <div>
+                    <div>
+                        <ng-container *ngFor="let bc of item.businessChannel">
+                            <span class="entity">{{bc.value}}</span>
+                        </ng-container>
+                        <span class="content-type">{{item.contentType}}</span>
+                    </div>
+                    <span class="content-title">{{item.title}}</span>
+                    <span>{{item.description}}</span>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-12">
+                <div class="dropdown" *ngIf="!item.isArchived">
+                    <a href="javascript:void(0);" id="item{{i+1}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="fa fa-ellipsis-h"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="'item'+(i+1)">
+                        <a *ngIf="item.contentTypeId == 1" [href]="environment.feraApiPath + '/file/' + item.fileIdEN" download="{{item.fileNameEN}}" class="dropdown-item">Download (EN)</a>
+                        <a *ngIf="item.contentTypeId == 2" [href]="item.filePathEN" class="dropdown-item" target="_blank">Browse (EN)</a>
+                        <a *ngIf="item.contentTypeId == 1 && item.fileIdMS !== undefined && item.fileIdMS !== null" [href]="environment.feraApiPath + '/file/' + item.fileIdMS" download="{{item.fileNameMS}}" class="dropdown-item">Download (BM)</a>
+                        <a *ngIf="item.contentTypeId == 2" [href]="item.filePathMS" class="dropdown-item" target="_blank">Browse (MS)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

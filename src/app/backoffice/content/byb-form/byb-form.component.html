@@ -1,0 +1,188 @@
+<div class="modal-full">
+    <header>
+        <div class="navbar-brand">
+            <img alt="branding logo" src="assets/img/logo-black.png" class="brand-logo">
+            <div class="splitter"></div>
+            <span class="subtitle">FERA Backoffice</span>
+        </div>
+
+        <div class="navbar-title float-center">
+            <span>{{formTitle}}</span>
+        </div>
+
+        <div class="navbar-exit float-xs-right">
+            <a class="exit" [routerLink]="['/backoffice/content/byb']"><span class="lnr lnr-cross"></span>Exit</a>
+        </div>
+    </header>
+
+    <main>
+        <form [formGroup]="bybForm" class="was-validated" (ngSubmit)="submit()" novalidate>
+            <div class="space1"></div>
+            <h5>BYB Content Details</h5>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Title<span class="fa fa-asterisk warning"></span></h6>
+            <input type="text" class="form-control formMargin" formControlName="title" required />
+            <div class="field-msg valid" *ngIf="bybForm.get('title')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="bybForm.get('title')?.errors?.required">
+                Title is required.
+            </div>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Description</h6>
+            <textarea class="form-control formMargin" rows="3" formControlName="description"></textarea>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Business Channels<span class="fa fa-asterisk warning"></span></h6>
+            <div>
+                <label for="cbxELIB" class="checkmark"><input type="checkbox" id="cbxELIB" name="business-channel" (change)="onChange($event)" value="1" required /><span class="check">&#10003;</span>ELIB</label>
+                <label for="cbxEFTB" class="checkmark"><input type="checkbox" id="cbxEFTB" name="business-channel" (change)="onChange($event)" value="2" required /><span class="check">&#10003;</span>EFTB</label>
+                <!-- <label for="cbxEGIB" class="checkmark"><input type="checkbox" id="cbxEGIB" name="business-channel" (change)="onChange($event)" value="4" /><span class="check">&#10003;</span>EGIB</label>
+                <label for="cbxEGTB" class="checkmark"><input type="checkbox" id="cbxEGTB" name="business-channel" (change)="onChange($event)" value="8" /><span class="check">&#10003;</span>EGTB</label> -->
+            </div>
+            <div class="field-msg valid" *ngIf="bybForm.get('businessChannel')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="bybForm.get('businessChannel')?.errors?.required">
+                Business Channel is required.
+            </div>
+
+            <div class="space2"></div>
+            <h6 class="subHead alignLeft">Career Segment<span class="fa fa-asterisk warning"></span></h6>
+            <div>
+                <label for="radFreshGraduates" class="radiomark"><input type="radio" id="radFreshGraduates" name="careerSegment" formControlName="careerSegment" value="1" required /><span class="check">&#10003;</span>Fresh graduates</label>
+                <label for="radProfessional" class="radiomark"><input type="radio" id="radProfessional" name="careerSegment" formControlName="careerSegment" value="2" required /><span class="check">&#10003;</span>Professional</label>
+                <label for="radSelfEmployed" class="radiomark"><input type="radio" id="radSelfEmployed" name="careerSegment" formControlName="careerSegment" value="3" required /><span class="check">&#10003;</span>Self employed</label>
+                <label for="radWorkingAdult" class="radiomark"><input type="radio" id="radWorkingAdult" name="careerSegment" formControlName="careerSegment" value="4" required /><span class="check">&#10003;</span>Working Adult</label>
+            </div>
+            <div class="field-msg valid" *ngIf="bybForm.get('careerSegment')?.valid">
+                &nbsp;
+            </div>
+            <div class="field-msg warning" *ngIf="bybForm.get('careerSegment')?.errors?.required">
+                Career Segment is required.
+            </div>
+
+            <div class="space1"></div>
+            <div>
+                <ul id="tabSwitch" class="nav nav-pills nav-justified">
+                    <li class="nav-item tab-switch left" data-target="panel-upload-file">
+                        <input type="radio" id="radFile" name="contentType" formControlName="contentType" value="1" />File
+                    </li>
+                    <li class="nav-item tab-switch right" data-target="panel-video">
+                        <input type="radio" id="radVideo" name="contentType" formControlName="contentType" value="2" />Video
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tab-switch-panel">
+                <div id="panel-upload-file">
+
+                    <div class="space2"></div>
+                    <ng-container *ngIf="bybForm.get('uploadedFileNameEN')?.value !== undefined && bybForm.get('uploadedFileNameEN')?.value !== null && bybForm.get('uploadedFileNameEN').value.length > 0
+                                        && bybForm.get('uploadedFileIdEN')?.value !== undefined && bybForm.get('uploadedFileIdEN')?.value !== null">
+                        <div class="space2"></div>
+                        <h6 class="subHead alignLeft">BYB Content file (English)</h6>
+                        <div class="uploaded-file">
+                            <a [href]="environment.feraApiPath + '/file/' + bybForm.get('uploadedFileIdEN').value" download="{{bybForm.get('uploadedFileNameEN').value}}">
+                                <div class="imgContainer">
+                                    <img [src]="[bybForm.get('uploadedFileIdEN').value === undefined || bybForm.get('uploadedFileIdEN').value === null ? 'assets/img/no-thumbnail-file.png' : environment.feraApiPath + '/thumbnail/' + bybForm.get('uploadedFileIdEN').value]" />
+                                </div>
+                                <div style="margin-top: 3px;">
+                                    <span class="fa fa-file"></span>{{bybForm.get('uploadedFileNameEN').value}}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="space2"></div>
+                    </ng-container>
+
+                    <div class="space2"></div>
+                    <h6 class="subHead alignLeft">Upload file (English)<span class="fa fa-asterisk warning"></span></h6>
+                    <input id="file-upload-en" type="file" class="form-control file-input" (change)="onFileENSelected($event)" #fileUploadEN />
+                    <label class="file-upload" for="file-upload-en">
+                        {{getFileNameEN()}}
+                        <button type="button" class="upload-btn" (click)="fileUploadEN.click()">
+                            <span class="lnr lnr-paperclip"></span>
+                        </button>
+                    </label>
+                    <div class="field-msg valid" *ngIf="bybForm.errors?.fileEnRequired === null">
+                        &nbsp;
+                    </div>
+                    <div class="field-msg warning" *ngIf="bybForm.errors?.fileEnRequired">
+                        Please upload a file.
+                    </div>
+
+                    <div class="space1"></div>
+                    <div class="space1"></div>
+                    <ng-container *ngIf="bybForm.get('uploadedFileNameMS')?.value !== undefined && bybForm.get('uploadedFileNameMS')?.value !== null && bybForm.get('uploadedFileNameMS').value.length > 0
+                                        && bybForm.get('uploadedFileIdMS').value !== undefined || bybForm.get('uploadedFileIdMS').value !== null">
+                        <div class="space2"></div>
+                        <h6 class="subHead alignLeft">BYB Content file (BM)</h6>
+                        <div class="uploaded-file">
+                            <a [href]="environment.feraApiPath + '/file/' + bybForm.get('uploadedFileIdMS').value" download="{{bybForm.get('uploadedFileNameMS').value}}">
+                                <div class="imgContainer">
+                                    <img [src]="[bybForm.get('uploadedFileIdMS').value === undefined || bybForm.get('uploadedFileIdMS').value === null ? 'assets/img/no-thumbnail-file.png' : environment.feraApiPath + '/thumbnail/' + bybForm.get('uploadedFileIdMS').value]" />
+                                </div>
+                                <div style="margin-top: 3px;">
+                                    <span class="fa fa-file"></span>{{bybForm.get('uploadedFileNameMS').value}}
+                                </div>
+                            </a>
+                        </div>
+                        <div class="space2"></div>
+                    </ng-container>
+
+                    <div class="space2"></div>
+                    <h6 class="subHead alignLeft">Upload file (BM) <span class="remark">- Optional</span></h6>
+                    <input id="file-upload-ms" type="file" class="form-control file-input" (change)="onFileMSSelected($event)" #fileUploadMS />
+                    <label class="file-upload" for="file-upload-ms">
+                        {{getFileNameMS()}}
+                        <button type="button" class="upload-btn" (click)="fileUploadMS.click()">
+                            <span class="lnr lnr-paperclip"></span>
+                        </button>
+                    </label>
+                </div>
+
+                <div id="panel-video">
+                    <div class="space2"></div>
+                    <h6 class="subHead alignLeft">Video url (English)<span class="fa fa-asterisk warning"></span></h6>
+                    <input type="text" class="form-control formMargin" formControlName="enUrl" />
+                    <div class="field-msg valid" *ngIf="bybForm.errors?.fileEnRequired === null">
+                        &nbsp;
+                    </div>
+                    <div class="field-msg warning" *ngIf="bybForm.errors?.fileEnRequired">
+                        Please enter a video url.
+                    </div>
+
+                    <div class="space2"></div>
+                    <h6 class="subHead alignLeft">Video url (BM) <span class="remark">- Optional</span></h6>
+                    <input type="text" class="form-control formMargin" formControlName="msUrl" />
+                </div>
+            </div>
+
+            <div class="space1"></div>
+            <button class="btn btn-warning">Submit</button>
+        </form>
+    </main>
+</div>
+
+<div class="modal fade" id="bybFormMessage" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+
+                <!-- <div class="iconWrapper v2">
+                <img src="assets/icon/login/success.svg">
+            </div> -->
+
+                <h4 class="subHead alignLeft">{{bybFormDialogMsg}}</h4>
+
+                <div class="btnMax">
+                    <button class="btn btn-warning" data-dismiss="modal" data-toggle="modal" (click)="close()">Done</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

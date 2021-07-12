@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeraService } from '../fera.service';
-import jwt_decode from 'jwt-decode';
-import { IdTokenJWT } from '../IdTokenJWT';
+import { FeraService } from '../../service/fera.service';
 
 @Component({
   selector: 'app-guest',
   templateUrl: './guest.component.html',
-  styleUrls: ['./guest.component.scss']
+  styleUrls: ['./guest.component.css']
 })
 export class GuestComponent implements OnInit {
 
@@ -16,7 +14,7 @@ export class GuestComponent implements OnInit {
   ngOnInit(): void {
     let idToken = sessionStorage.getItem("idToken");
     if (idToken !== undefined && idToken !== null) {
-      this.feraService.getAuthorize(this.TryAuthorize);
+      this.feraService.getAuthorize(this.TryAuthorize, true);
     }
   }
 

@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  authPath: 'https://localhost:44399',
+  feraUiPath: 'http://localhost:4200',
+  feraApiPath: 'https://localhost:44397',
+  agentApiPath: 'https://localhost:44387',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

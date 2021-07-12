@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-anonymous',
   templateUrl: './anonymous.component.html',
-  styleUrls: ['./anonymous.component.scss']
+  styleUrls: ['./anonymous.component.css']
 })
 export class AnonymousComponent implements OnInit {
   router: Router;
@@ -18,6 +19,6 @@ export class AnonymousComponent implements OnInit {
 
   goToLogin(event: MouseEvent): void {
     //window.location.href = "https://localhost:44399/authorize?appid=123456";
-    window.location.href = "https://partner.epsuat.com.my/auth/authorize?appid=123456";
+    window.location.href = environment.authPath + "/authorize?appid=123456";
   }
 }

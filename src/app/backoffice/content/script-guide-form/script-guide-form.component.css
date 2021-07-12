@@ -1,0 +1,126 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+main {
+    margin: 0 20%;
+    padding: 10px 10px;
+}
+
+.navbar-brand {
+    margin: 10px 20px;
+}
+
+.navbar-brand .brand-logo {
+    display: inline-block;
+}
+
+.navbar-brand .splitter {
+    border: 1px solid #6B6B6B;
+    display: inline-block;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.navbar-brand .subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -14px 0 0 10px;
+    top: 50%;
+}
+
+.navbar-title {
+    margin: auto;
+}
+
+.navbar-title span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.float-xs-right {
+    margin-left: auto;
+}
+
+.navbar-exit {
+    margin: 20px 15px;
+    padding: 5px 10px;
+}
+
+.navbar-exit .exit {
+    color: #f15a22;
+    border-radius: 5px;
+    padding: 3px 10px 3px 6px;
+    font-weight: 500;
+    background: #FEEDE6 0% 0% no-repeat padding-box;
+}
+
+.navbar-exit .exit .lnr::before {
+    top: 1px;
+    position: relative;
+    font-weight: bold;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-btn {
+    padding: 3px 8px;
+    border: 1px solid #1976d2;
+    border-radius: 50px;
+    background-color: #1976d2;
+    color: #fff;
+}
+
+button.btn-warning {
+    margin-top: 10px;
+    width: 200px;
+}
+
+#scriptFormMessage {
+    z-index: 1300;
+}
+
+.uploaded-file span.fa {
+    margin-right: 5px;
+    font-size: 25px;
+}
+
+.uploaded-file .imgContainer {
+    width: 208px;
+    height: 117px;
+    border: 1px dashed #006C78;
+    padding: 3px;
+}
+
+.uploaded-file .imgContainer img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #006C78;
+}
+
+@media (max-width:768px) {
+    .navbar-brand .brand-logo {
+        width: 90px;
+    }
+    .navbar-brand .splitter {
+        display: none;
+    }
+    .navbar-brand .subtitle {
+        display: none;
+    }
+    main {
+        margin: 0 20px;
+        padding: 10px 10px;
+    }
+    .uploaded-file .imgContainer {
+        width: 90%;
+        height: auto;
+    }
+}

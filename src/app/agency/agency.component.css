@@ -1,0 +1,28 @@
+#content-head-menu {
+    margin: 0;
+    padding: 20px 30px;
+}
+
+.content-tab {
+    font-family: "MetaProBold";
+    font-size: 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+}
+
+.content-tab.active {
+    background-color: #007885;
+}
+
+.content-tab a {
+    color: #767676;
+}
+
+.content-tab.active a {
+    color: #fff;
+}
+
+.lnr,
+.fa {
+    margin-right: 10px;
+}

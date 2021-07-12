@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FeraService } from '../../fera.service';
-import { AgentService } from '../../agent.service';
-import { UserProfile } from '../../User';
+import { FeraService } from '../../../service/fera.service';
+import { AgentService } from '../../../service/agent.service';
+import { UserProfile } from '../../../models/User';
+
+declare var $: any;
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
   public userProfile: UserProfile
 
   constructor(private router: Router, private feraService: FeraService, private agentService: AgentService) {
+    $('#mainMenu li').removeClass('active');
     this.userProfile = new UserProfile('pending...','pending...','pending...','pending...','pending...','pending...','pending...','pending...',null,null);
   }
 
   ngOnInit(): void {
-    this.agentService.getAccessInfo(this.BindAccessInfo);
-    this.feraService.getProfile(this.BindProfile);
+    this.agentService.getAccessInfo(this.BindAccessInfo, true);
+    this.feraService.getProfile(this.BindProfile, true);
   }
 
   BindProfile = (data: any): void => {
