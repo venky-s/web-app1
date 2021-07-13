@@ -23,3 +23,24 @@
     border: 0;
     border-bottom: 4px solid #FFBF00;
 }
+
+.col-md-2 {
+    width: 20%;
+}
+
+.up-coming-event .card {
+    flex-direction: row;
+    align-items: center;
+}
+.up-coming-event .card img {
+    width: 30%;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.up-coming-event .card-title {
+    font-weight: bold;
+}
+.prospect-count {
+    color: #0DA193;
+}
