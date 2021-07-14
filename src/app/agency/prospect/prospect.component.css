@@ -24,8 +24,18 @@
     border-bottom: 4px solid #FFBF00;
 }
 
+
+.statistic-box .card-title{
+    height: 41px;
+}
+.statistic-box .total-h{
+    height: 19px;
+}
 .col-md-2 {
     width: 20%;
+}
+.prospect-count {
+    color: #0DA193;
 }
 
 .up-coming-event .card {
@@ -33,14 +43,47 @@
     align-items: center;
 }
 .up-coming-event .card img {
-    width: 30%;
+    /*width: 30%; 
     border-top-right-radius: 0;
-    border-bottom-left-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px); */
+    margin-left: 20px;
 }
 
 .up-coming-event .card-title {
-    font-weight: bold;
+    /*font-weight: bold; */
 }
-.prospect-count {
-    color: #0DA193;
+.up-coming-event .card-img-top {
+    height: 204px;
+    width: 108px;
 }
+
+.up-coming-event .e-font-style {
+    font-family: sans-serif;
+}
+.up-coming-event-info {
+    padding: 0;
+    width: 141px;
+    display: inline-block;
+}
+
+
+.inner-addon {
+    position: relative;
+  }
+  
+  /* style glyph */
+  .inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+  
+  /* align glyph */
+  .left-addon .glyphicon  { left:  0px;}
+  .right-addon .glyphicon { right: 0px;}
+  
+  /* add padding  */
+  .left-addon input  { padding-left:  30px; }
+  .right-addon input { padding-right: 30px; }
+  
+  
