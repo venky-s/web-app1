@@ -5,7 +5,8 @@
 <nav>
     <ul id="content-nav" class="nav nav-tabs">
         <li class="nav-item" *ngFor="let nav of menuList">
-            <a [routerLink]="[nav.menuLink]" class="nav-link">{{nav.menuText}}</a>
+            <a [routerLink]="[nav.menuLink]" class="nav-link" [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">{{nav.menuText}}</a>
         </li>
         <!--<li class="nav-item">
             <a href="javascript:void(0);" class="nav-link">Potential Prospect</a>
