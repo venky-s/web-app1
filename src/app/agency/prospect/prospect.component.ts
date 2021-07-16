@@ -12,12 +12,12 @@ export class ProspectComponent implements OnInit {
   constructor() { }
 
   menuList = [
-    { menuText: "Dashboard", menuLink: "/backoffice", menuStyle: "lnr-home" },
-    { menuText: "Registered Prospect", menuLink: "./", menuStyle: "lnr-users" },
-    { menuText: "Follow Up", menuLink: "./", menuStyle: "lnr-file-add" },
-    { menuText: "Application Submitted", menuLink: "./", menuStyle: "lnr-graduation-hat" },
-    { menuText: "Onboard", menuLink: "./", menuStyle: "lnr-book" },
-    { menuText: "Not Intrested", menuLink: "./", menuStyle: "lnr-calendar-full" }
+    { menuText: "Dashboard", menuLink: "./" },
+    { menuText: "Registered Prospect", menuLink: "./registered-prospect" },
+    { menuText: "Follow Up", menuLink: "./follow-up" },
+    { menuText: "Application Submitted", menuLink: "./application-submitted" },
+    { menuText: "Onboard", menuLink: "./onboard" },
+    { menuText: "Not Intrested", menuLink: "./not-intrested" }
   ];
   ngOnInit(): void {
     $('#content-head-menu li').removeClass('active');
