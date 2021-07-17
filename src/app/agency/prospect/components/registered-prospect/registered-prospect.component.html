@@ -1,1 +1,97 @@
-<p>registered-prospect works!</p>
+<div class="row profile-font-style">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12">
+        <button class="btn btn-main prospect-new-btn"><span class="fa fa-plus"></span>  New Prospect</button>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+        <div class="select-wrap">
+            <label>Profile Status</label>
+            <select>
+                <option value="0">All</option>
+                <option value="1">Fresh graduates</option>
+                <option value="2">Professional</option>
+                <option value="3">Self employed</option>
+                <option value="4">Working Adult</option>                  
+            </select>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+        <div class="select-wrap">
+            <label>Show Invited to BYB</label>
+            <select>
+                <option value="0">All</option>
+                <option value="1">ELIB</option>
+                <option value="2">EFTB</option>
+                <option value="3">EGIB</option>
+                <option value="4">EGTB</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+        <div class="select-wrap">
+            <label>Sort by</label>
+            <select id="sorting">
+                <option value="1">Latest</option>
+                <option value="0">Oldest</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive profile-font-style">
+    <table class="table border-less prospect-tbl">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Profile Name</th>
+            <th scope="col">Profile status</th>
+            <th scope="col">Mobile No.</th>
+            <th scope="col">Registered Date</th>
+            <th scope="col">Invite to BYB</th>
+            <th scope="col">Attended BYB</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                   <input class="" type="checkbox" value="">
+                </td>
+                <td><span class="rounded-circle name-icon" style="">S</span> Name AAA</td>
+                <td>Fresh Graduate</td>
+                <td>010-345 6789</td>
+                <td>21 June 2021</td>
+                <td>BYB June 2021</td>
+                <td>Yes</td>
+                <td style="color: #007885;"> View > </td>
+                <td><span class="more-option-icon"></span></td>  
+            </tr>
+            <tr>
+                <td scope="row">
+                    <input class="" type="checkbox" value="">
+                </td>
+                <td><span class="rounded-circle name-icon" style="">A</span> Name AAA</td>
+                <td>Fresh Graduate</td>
+                <td>010-345 6789</td>
+                <td>21 June 2021</td>
+                <td>BYB June 2021</td>
+                <td> - </td>
+                <td style="color: #007885;"> View > </td>
+                <td><span class="more-option-icon"></span></td>
+            </tr>     
+            <tr>
+                <td scope="row">
+                    <input class="" type="checkbox" value="">
+                </td>
+                <td><span class="rounded-circle name-icon" style="">S</span> Name AAA</td>
+                <td>Fresh Graduate</td>
+                <td>010-345 6789</td>
+                <td>21 June 2021</td>
+                <td> - </td>
+                <td> - </td>
+                <td style="color: #007885;"> View > </td>
+                <td><span class="more-option-icon"></span></td>
+            </tr>            
+        </tbody>
+    </table>
+</div>
