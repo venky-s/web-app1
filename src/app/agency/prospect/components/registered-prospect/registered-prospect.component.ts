@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registered-prospect',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisteredProspectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
+  newProspectBtn(){    
+      this.router.navigate(['/agency/my-qr']);
+  }
   ngOnInit(): void {
   }
 
