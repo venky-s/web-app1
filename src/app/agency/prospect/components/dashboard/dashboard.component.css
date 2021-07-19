@@ -6,9 +6,7 @@
 .statistic-box .total-h{
     height: 19px;
 }
-.col-md-2 {
-    width: 20%;
-}
+
 .prospect-count {
     color: #0DA193;
 }
@@ -42,4 +40,8 @@
     padding: 0;
     width: 141px;
     display: inline-block;
+}
+
+.col {
+    margin-top: 10px;
 }
