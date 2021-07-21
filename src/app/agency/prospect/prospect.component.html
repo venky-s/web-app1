@@ -19,3 +19,64 @@
 <div style="margin: 40px;">
     <router-outlet></router-outlet>
 </div>
+
+<!-- Modal -->
+<div class="modal fade prospect-btn-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="background-color: #000;">
+    <div class="modal-dialog modal-lg prospect-model prospect-add-style">
+      <div class="modal-content">
+        <div class="modal-header" style="display: inline;border-bottom: none;">
+          <h4><div data-dismiss="modal" aria-label="Close" style="background-color: #000;cursor: pointer;
+            color: #FFF;border-radius: 50%; margin-top: 10px;width: 40px; height: 30px; text-align: center;"> &#60; </div></h4>
+          <div style="margin: 20px 0 auto 20px;">
+                <h4 class="modal-title"> Add New Prospect </h4>   
+                <span>You can add new prospect using following method</span>
+          </div>       
+        </div>
+        <div class="modal-body prospect-model-wind" style="padding-top: 0px;">
+            <div class="profile row">
+                <div class="profile-qr col-lg-6 col-md-12">
+                    <div>
+                        <span>Visit profile survey via QR</span>
+                        <div class="space1"></div>
+                        <div class="qr">
+                            <a href="::javascript" download="qrid.png">
+                                <img src="assets/img/qr_img.png" alt="avatar" style="width: 146px;height: 146px;">
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <span class="lnr lnr-download" style="margin-right: 5px;"></span>Download
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-email col-lg-6 col-md-12">
+                    <div>
+                        <div style="min-height: 224px;">
+                            <div class="mb-3">
+                                <label for="profile_link" class="form-label">Visit profile survey via link</label>                                
+                                <input type="text" class="form-control" id="profile_link" placeholder="">
+                            </div>
+                            <div class="mb-3" style="margin-top: 28px;">
+                                <label for="email_link" class="form-label">Send link to (email address)</label>                                
+                                <input type="text" class="form-control col-md-8" id="email_link" style="display: inline;">
+                                <div class="col-md-4" style="float: right;">
+                                    <button class="btn btn-warning btn-login" style="width: 80px;">Send</button>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-survey col-lg-12 col-md-12">
+                    <div>
+                        <a href="::javascript" class="btn btn-warning" target="_blank"><span class="lnr lnr-link"></span>Visit the profile survey here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row profile-notes col-lg-12 col-md-12 text-muted" style="margin-top: 50px;margin-bottom: 30px;font-family: sans-serif;font-size: 14px;">
+                <p class="text-center" style="margin: auto;"> All profile created through this QR will display on your <span class="lnr lnr-user"></span>Prospect section </p>
+            </div>
+
+        </div>
+        
+      </div>
+    </div>
+</div>

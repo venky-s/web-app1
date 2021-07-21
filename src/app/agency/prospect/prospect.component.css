@@ -22,3 +22,59 @@
     color: #000;
     border: 0;
 }
+
+
+.lnr {
+    margin-right: 5px;
+}
+.profile {
+    padding: 0 20px;
+}
+
+.profile-qr {
+    margin-top: 20px;
+}
+
+.profile-qr>div:first-child {
+    padding: 20px;
+    background-color: #FDF8E7;
+    text-align: center;    
+}
+
+.profile-qr>span:first-child {
+    margin: 0 auto;
+}
+
+.profile-qr .qr img {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+.profile-email {
+    margin-top: 20px;
+}
+
+.profile-email>div:first-child {
+    padding: 20px;
+    background-color: #FDF8E7;    
+}
+
+.profile-survey {
+    margin-top: 20px;
+}
+
+.profile-survey div {
+    padding: 20px;
+    background-color: #FDF8E7;
+    text-align: center;
+}
+
+.prospect-model-wind label {
+    height: 26px;
+}
+
+.prospect-add-style {
+    font-family: sans-serif;
+}
