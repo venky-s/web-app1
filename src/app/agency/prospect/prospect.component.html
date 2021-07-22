@@ -29,7 +29,7 @@
             color: #FFF;border-radius: 50%; margin-top: 10px;width: 40px; height: 30px; text-align: center;"> &#60; </div></h4>
           <div style="margin: 20px 0 auto 20px;">
                 <h4 class="modal-title"> Add New Prospect </h4>   
-                <span>You can add new prospect using following method</span>
+                <span>You can add new prospect via following methods:</span>
           </div>       
         </div>
         <div class="modal-body prospect-model-wind" style="padding-top: 0px;">
@@ -51,9 +51,12 @@
                 <div class="profile-email col-lg-6 col-md-12">
                     <div>
                         <div style="min-height: 224px;">
-                            <div class="mb-3">
-                                <label for="profile_link" class="form-label">Visit profile survey via link</label>                                
-                                <input type="text" class="form-control" id="profile_link" placeholder="">
+                            <div class="mb-3 input-group">
+                                <label for="profile_link" class="form-label" style="width: 100%;">Visit profile survey via link</label>                                
+                                <input type="text" class="form-control" id="profile_link" value="http://abcderf.sfgs">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary copy_btn" type="button">Copy</button>
+                                </div>
                             </div>
                             <div class="mb-3" style="margin-top: 28px;">
                                 <label for="email_link" class="form-label">Send link to (email address)</label>                                
@@ -65,14 +68,15 @@
                         </div>
                     </div>
                 </div>
+                <span class="or_design">OR</span>
                 <div class="profile-survey col-lg-12 col-md-12">
                     <div>
                         <a href="::javascript" class="btn btn-warning" target="_blank"><span class="lnr lnr-link"></span>Visit the profile survey here</a>
                     </div>
                 </div>
             </div>
-            <div class="row profile-notes col-lg-12 col-md-12 text-muted" style="margin-top: 50px;margin-bottom: 30px;font-family: sans-serif;font-size: 14px;">
-                <p class="text-center" style="margin: auto;"> All profile created through this QR will display on your <span class="lnr lnr-user"></span>Prospect section </p>
+            <div class="row profile-notes col-lg-12 col-md-12 text-muted" style="">
+                <p class="text-center" style="margin: auto;"> All profile created will display on your <span class="lnr lnr-user"></span>Prospect section</p>
             </div>
 
         </div>

@@ -32,7 +32,7 @@
 }
 
 .profile-qr {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .profile-qr>div:first-child {
@@ -53,7 +53,7 @@
 }
 
 .profile-email {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .profile-email>div:first-child {
@@ -62,11 +62,11 @@
 }
 
 .profile-survey {
-    margin-top: 20px;
+    margin-top: -6px;
 }
 
 .profile-survey div {
-    padding: 20px;
+    padding: 40px;
     background-color: #FDF8E7;
     text-align: center;
 }
@@ -77,4 +77,34 @@
 
 .prospect-add-style {
     font-family: sans-serif;
+}
+.or_design {
+    border-radius: 50%;
+    background-color: #000000;
+    color: #FFF;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: auto;   
+    margin-top: -8px;
+    z-index: 1;
+}
+.copy_btn {
+    font-size: 12px;
+    border: none;
+    background-color: #E8E2D0;
+    color: #007885;
+}
+#profile_link {
+    background-color: #E8E2D0;
+    border: none;
+}
+.profile-notes{
+    margin-top: 36px;
+    margin-bottom: 16px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+.modal-dialog{
+    margin: 5px auto;
 }
