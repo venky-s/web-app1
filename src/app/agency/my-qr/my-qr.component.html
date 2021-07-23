@@ -9,43 +9,85 @@
     </ul>
 </nav>
 
-<div class="profile-notes">
-    All profile created through this QR will display on your <b><span class="lnr lnr-user"></span>Prospect</b> section
-</div>
-
-<div id="profile" class="row">
-    <div id="profile-qr" class="col-lg-6 col-md-12">
-        <div>
-            <span>Visit profile survey via QR</span>
-            <div class="space1"></div>
-            <div class="qr">
-                <a [href]=userProfile?.QRImage64 download="qrid.png">
-                    <img [src]=userProfile?.QRImage64 alt="avatar">
-                    <div style="text-align: center; margin-top: 10px;">
-                        <span class="lnr lnr-download" style="margin-right: 5px;"></span>Download
+<div class="row" style="margin: 40px;">
+    <div class="up-coming-event" style="width: 100%;">        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card activity-card">
+                    <img class="card-img-top" src="assets/img/event3.jpeg" alt="Card image cap">
+                    <div class="card-body e-font-style">
+                        <h4 class="card-title">BYB Event June 2021 </h4>                                          
+                        <div class="">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Event Date</span>
+                                    <span class="">01 June 2021, 10am to 11:30am</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Registration Start</span>
+                                    <span class="">01 May 2021, 10am</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Registration End</span>
+                                    <span class="">31 May 2021, 5pm</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">type</span>
+                                    <span class="">Virtual (Zoom)</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Status</span>
+                                    <span class="card-link" style="color: #0DA193;">Open for Registration</span>
+                                </li>
+                                <li>
+                                    <h4><a class="heading pull-right details_link" href="#">
+                                        <small> > </small>
+                                    </a></h4>
+                                </li>
+                            </ul> 
+                        </div>                        
                     </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="profile-email" class="col-lg-6 col-md-12">
-        <div>
-            <div style="width: 80%; margin: 0 auto;">
-                <span>Visit profile survey via link</span>
-                <div class="space1"></div>
-                <div class="form-group form-gap">
-                    <span id="msgError" class="error-login" style="display:none;">{{sendQrMsg}}</span>
-                    <input type="text" id="prospectEmail" name="prospectEmail" class="form-control" placeholder="Email address" [(ngModel)]="prospectEmail" />
-                </div>
-                <div class="btnMax">
-                    <button class="btn btn-warning btn-login" style="width: 100px;" (click)="sendQR($event)">Send</button>
                 </div>
             </div>
-        </div>
+            <div class="col-md-6">
+                <div class="card activity-card">
+                    <img class="card-img-top" src="assets/img/event4.jpeg" alt="Card image cap">
+                    <div class="card-body e-font-style">
+                        <h4 class="card-title">BYB Event June 2021 </h4>                                      
+                        <div class="">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Event Date</span>
+                                    <span class="">01 June 2021, 10am to 11:30am</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Registration Start</span>
+                                    <span class="">01 May 2021, 10am</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Registration End</span>
+                                    <span class="">31 May 2021, 5pm</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">type</span>
+                                    <span class="">Virtual (Zoom)</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted up-coming-event-info">Status</span>
+                                    <span class="card-link" style="color: #F7941E;">Upcoming </span>
+                                </li>
+                                <li>
+                                    <h4><a class="heading pull-right details_link" href="#">
+                                        <small> > </small>
+                                    </a></h4>
+                                </li>
+                            </ul> 
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>           
     </div>
-    <div id="profile-survey" class="col-lg-12 col-md-12">
-        <div>
-            <a [href]="userProfile?.QRUidUrl" class="btn btn-warning" target="_blank"><span class="lnr lnr-link"></span>Visit the profile survey here</a>
-        </div>
-    </div>
+    
+    <div class="up-coming-event-demo-rm" style="margin-top: 40px;width: 100%;"></div>
 </div>
