@@ -1,0 +1,11 @@
+<nav>
+    <ul id="content-nav" class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let nav of activitiesMenu">
+            <a [routerLink]="[nav.menuLink]" class="nav-link" [routerLinkActiveOptions]="{exact: true}"
+            routerLinkActive="active">{{nav.menuText}}</a>
+        </li>
+    </ul>
+</nav>
+<div style="margin: 40px;">
+    <router-outlet></router-outlet>
+</div>

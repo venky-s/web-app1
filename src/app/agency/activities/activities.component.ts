@@ -5,16 +5,20 @@ import { User, UserProfile } from '../../../models/User';
 declare var $: any;
 
 @Component({
-  selector: 'app-my-qr',
-  templateUrl: './my-qr.component.html',
-  styleUrls: ['./my-qr.component.css']
+  selector: 'app-activities',
+  templateUrl: './activities.component.html',
+  styleUrls: ['./activities.component.css']
 })
-export class MyQrComponent implements OnInit {
+export class ActivitiesComponent implements OnInit {
   user: User | undefined;
   userProfile: UserProfile;
   prospectEmail: string = '';
   sendQrMsg: string;
 
+  activitiesMenu = [
+    { menuText: "Upcoming", menuLink: "./" },
+    { menuText: "Passed", menuLink: "./passed" },
+  ];
   constructor(private feraService: FeraService) {
     this.userProfile = new UserProfile('pending...','pending...','pending...','pending...','pending...','pending...','pending...','pending...',null,null);
   }

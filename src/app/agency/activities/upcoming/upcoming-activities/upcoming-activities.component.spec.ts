@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyQrComponent } from './my-qr.component';
+import { UpcomingActivitiesComponent } from './upcoming-activities.component';
 
-describe('MyQrComponent', () => {
-  let component: MyQrComponent;
-  let fixture: ComponentFixture<MyQrComponent>;
+describe('UpcomingActivitiesComponent', () => {
+  let component: UpcomingActivitiesComponent;
+  let fixture: ComponentFixture<UpcomingActivitiesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyQrComponent ]
+      declarations: [ UpcomingActivitiesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyQrComponent);
+    fixture = TestBed.createComponent(UpcomingActivitiesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
