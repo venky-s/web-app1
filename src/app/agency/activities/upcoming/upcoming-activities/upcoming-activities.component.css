@@ -25,7 +25,8 @@
     display: inline-block;
 }
 .activity-card {
-    padding: 25px;
+    padding: 0 25px;
+    border: 0;
 }
 .activity-card .card-body {
     padding-left: 0;
@@ -55,4 +56,65 @@
     background-color: #000;
     cursor: pointer;    
     color: #FFF;
+}
+.modal-dialog {
+    max-width: 90%;   
+    margin: 0 auto;
+    padding: 0;
+    background-color: #000;
+}  
+.modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+.e-font-style {
+    font-family: sans-serif;
+}
+.activity-details li{
+    padding-bottom: 20px;
+}
+.register-now {
+    padding-right: 30px;
+    color: #0DA193;
+    text-decoration: underline;
+}
+.modal-card-link {
+    color: #FFF;
+    background-color: #0DA193;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+
+.border-less thead th {
+    border: none;
+    font-size: 12px;
+    font-weight: normal;
+    color: #767676;
+    padding-bottom: 0;
+}
+.prospect-tbl tbody td {
+    vertical-align: middle;
+    text-align: left;
+    border: 1px solid #CCC;
+}
+.prospect-tbl tbody td {    
+   border-left: none;
+   border-right: none;
+}
+.prospect-tbl tbody td:first-child{
+    border-left: 1px solid #CCC;
+}
+.prospect-tbl tbody td:last-child{
+    border-right: 1px solid #CCC;
+}
+.prospect-tbl{
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+.prospect-tbl .name-icon {
+    background-color: #ececec;
+    padding: 6px 10px 5px 12px;
+    margin-right: 8px;
 }
