@@ -20,3 +20,7 @@
 .nav-tabs>li.nav-item:first-child {
     margin-left: 40px;
 }
+
+body {
+    font-family: sans-serif;    
+}
