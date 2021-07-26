@@ -81,3 +81,58 @@
     padding: 10px;
     margin-right: 8px;
 }
+
+
+/* Model*/
+
+.modal-dialog {
+    max-width: 90%;   
+    margin: 0 auto;
+    padding: 0;
+    background-color: #000;
+}  
+.modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+.e-font-style {
+    font-family: sans-serif;
+}
+.modal_close_icon {
+    border: 1px solid black;
+    border-radius: 50%;
+    padding-right: 9px;
+    padding-bottom: 1px;
+    padding-left: 9px;
+    padding-top: 0px;
+    font-size: 26px;
+    background-color: #000;
+    cursor: pointer;    
+    color: #FFF;
+}
+
+.nav-tabs a {
+    color: #676767;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:link {
+    border: 0;
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom: 4px solid #FFBF00;
+}
+
+.nav-tabs .nav-link.active {
+    color: #000;
+    border: 0;
+    border-bottom: 4px solid #FFBF00;
+}
+
+.nav-tabs>li.nav-item:first-child {
+    margin-left: 40px;
+    color: #000;
+    border: 0;
+}

@@ -75,7 +75,7 @@
                 <td>21 June 2021</td>
                 <td>Yes</td>
                 <td>Yes</td>
-                <td style="color: #007885;"> View > </td>
+                <td style="color: #007885;" data-toggle="modal" data-target=".follow-up-modal-lg"> View > </td>
                 <td><span class="more-option-icon"></span></td>  
             </tr>
             <tr>
@@ -88,7 +88,7 @@
                 <td>21 June 2021</td>
                 <td> - </td>
                 <td> - </td>
-                <td style="color: #007885;"> View > </td>
+                <td style="color: #007885;" data-toggle="modal" data-target=".follow-up-modal-lg"> View > </td>
                 <td><span class="more-option-icon"></span></td>
             </tr>     
             <tr>
@@ -101,9 +101,54 @@
                 <td>21 June 2021</td>
                 <td> - </td>
                 <td> - </td>
-                <td style="color: #007885;"> View > </td>
+                <td style="color: #007885;" data-toggle="modal" data-target=".follow-up-modal-lg"> View > </td>
                 <td><span class="more-option-icon"></span></td>
             </tr>            
         </tbody>
     </table>
+</div>
+
+<div class="modal fade follow-up-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: 0;">
+                <div class="modal_close_icon" data-dismiss="modal" aria-label="Close"> &#60; </div>  
+                           
+            </div>
+            <div class="modal-body" style="padding-top: 0;"> 
+                <ul class="nav nav-tabs" style="font-size: 24px;">
+                    <li class="nav-item">
+                        <a  id="profile-tab" class="active nav-link" data-toggle="tab" href="#profile" >Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" >Questionnaire</a>
+                    </li>                    
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content clearfix" style="padding: 20px 40px;">
+                    <div class="tab-pane active" id="profile">
+                    <div class="row">
+                        <div class="col-sm-12">
+                        <div class="">
+                            <h3>name</h3>
+                            <p>This is profile tab.</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div> 
+
+                    <div class="tab-pane" id="home">
+                    <div class="row">
+                        <div class="col-sm-12">
+                        <div class="">
+                            <h3>Questionnaire </h3>  
+                            <p>This is home tab.</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>                      
+                </div>                
+            </div>
+        </div>
+    </div>
 </div>
