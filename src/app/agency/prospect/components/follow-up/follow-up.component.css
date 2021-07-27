@@ -136,3 +136,80 @@
     color: #000;
     border: 0;
 }
+
+.follow-up-profile li{
+    padding-bottom: 20px;
+}
+.register-now {
+    padding-left: 30px;
+    color: #0DA193;
+    text-decoration: underline;
+}
+.name-icon {
+    background-color: #ececec;
+    padding: 6px 10px 5px 12px;
+    margin-right: 8px;
+}
+.up-coming-event-info {
+    padding: 0;
+    width: 160px;
+    display: inline-block;
+}
+
+/* TO DO list */
+.todo-timeline .v-timeline {
+    margin-top: 20px;
+}
+.todo-timeline .v-timeline ul {
+    position: relative;
+}
+.todo-timeline .v-timeline li {
+    list-style-type: none;
+    padding: 0 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+.todo-timeline .v-timeline li .top-bold-label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.todo-timeline .v-timeline li .mid-paragraph {
+    font-size: 1rem;
+}
+.todo-timeline .v-timeline li .bottom-link {
+    color: #0fa3b1;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+.todo-timeline .v-timeline .pl-30 {
+    padding-left: 50px;
+}
+.todo-timeline .v-timeline .v-timeline-icon:before {
+    content: ' ';
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    border-radius: 50%;
+    background: #000;
+}
+.todo-timeline .v-timeline .v-timeline-icon:after {
+    content: ' ';
+    border-left: 2px dashed #000;
+    display: inline-block;
+    position: absolute;
+    left: 9px;
+    height: 400px;
+    z-index: 400;
+    top: 22px;
+}
+.last-child:after {
+    border-left: none !important;     
+}
+.question-container {
+    font-size: 15px;
+}
+.question-container .question {
+    margin-bottom: 1px;
+}
