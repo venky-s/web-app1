@@ -213,3 +213,13 @@
 .question-container .question {
     margin-bottom: 1px;
 }
+.footer {
+    background-color: #FFBF00;
+    max-width: 100%;
+}
+.footer li {
+    float: left;
+    padding: 20px;    
+    cursor: pointer;
+    font-size: 14px;
+}
