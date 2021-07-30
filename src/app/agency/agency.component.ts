@@ -18,6 +18,12 @@ export class AgencyComponent implements OnInit, AfterViewInit {
   prospectEmail: string = '';
   sendQrMsg: string;
   
+  agencyMenuList = [
+    { menuText: "e-Presenter", menuLink: "./", menuStyle:"fa fa-share-alt-square" },
+    { menuText: "e-Potential Agent", menuLink: "./prospect", menuStyle:"lnr lnr-users" },
+    { menuText: "Activities", menuLink: "./activities", menuStyle:"fa fa-wpforms" }   
+  ];
+
   constructor(private router: Router, private feraService: FeraService) {
     this.userProfile = new UserProfile('pending...','pending...','pending...','pending...','pending...','pending...','pending...','pending...',null,null);
   }
@@ -29,14 +35,14 @@ export class AgencyComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    $("#tabSwitch > li").click(function(){
+   /* $("#tabSwitch > li").click(function(){
       var $this = $(this);
       $this.siblings().removeClass("active");
       $this.addClass("active");
       var target = $(document.getElementById($this.data("target")));
       target.siblings().hide();
       target.show();
-    });
+    }); */
   }
 
   AuthorizeAgency = (success: boolean): void => {

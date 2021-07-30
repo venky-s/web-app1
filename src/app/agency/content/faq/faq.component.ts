@@ -15,8 +15,8 @@ export class FaqComponent implements OnInit {
   constructor(private feraService: FeraService) { }
 
   ngOnInit(): void {
-    $('#content-nav li a').removeClass('active');
-    $('#content-nav li:nth-child(3) a').addClass('active');
+    //$('#content-nav li a').removeClass('active');
+    //$('#content-nav li:nth-child(3) a').addClass('active');
     this.search();
   }
 

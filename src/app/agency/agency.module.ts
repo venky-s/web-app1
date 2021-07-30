@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AgencyRoutingModule } from './agency-routing.module';
 import { AgencyComponent } from './agency.component';
@@ -17,6 +17,12 @@ import { PassedActivitiesComponent } from './activities/passed/passed-activities
 import { DetailsActivityComponent } from './activities/shared/details-activity/details-activity.component';
 
 
+import { ContentComponent } from './content/content.component';
+import { BybComponent } from './content/byb/byb.component';
+import { FaqComponent } from './content/faq/faq.component';
+import { ScriptGuideComponent } from './content/script-guide/script-guide.component';
+
+
 @NgModule({
   declarations: [
     AgencyComponent,
@@ -31,11 +37,17 @@ import { DetailsActivityComponent } from './activities/shared/details-activity/d
     UpcomingActivitiesComponent,
     PassedActivitiesComponent,
     DetailsActivityComponent,
+
+    ContentComponent,
+    BybComponent,
+    FaqComponent,
+    ScriptGuideComponent,
   ],
   imports: [
     CommonModule,
     AgencyRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AgencyModule { }

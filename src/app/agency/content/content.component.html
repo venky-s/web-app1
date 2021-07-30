@@ -1,14 +1,8 @@
 <nav>
     <ul id="content-nav" class="nav nav-tabs">
-        <li class="nav-item">
-            <a [routerLink]="['/agency/content/byb']" class="nav-link active">BYB</a>
-        </li>
-        <li class="nav-item">
-            <a [routerLink]="['/agency/content/script-guide']" class="nav-link">Script Guide</a>
-        </li>
-        <li class="nav-item">
-            <a [routerLink]="['/agency/content/faq']" class="nav-link">FAQ</a>
-        </li>
+        <li class="nav-item" *ngFor="let nav of contentMenuList">
+            <a [routerLink]="[nav.menuLink]" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{nav.menuText}}</a>
+        </li>       
     </ul>
 </nav>
 

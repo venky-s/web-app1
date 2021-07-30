@@ -20,8 +20,8 @@ export class ProspectComponent implements OnInit {
     { menuText: "Not Intrested", menuLink: "./not-intrested" }
   ];
   ngOnInit(): void {
-    $('#content-head-menu li').removeClass('active');
-    $('#content-head-menu li:nth-child(1)').addClass('active');
+    //$('#content-head-menu li').removeClass('active');
+    //$('#content-head-menu li:nth-child(1)').addClass('active');
   }
 
 }

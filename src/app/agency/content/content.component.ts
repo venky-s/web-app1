@@ -12,18 +12,23 @@ export class ContentComponent implements OnInit, AfterViewChecked {
 
   constructor(private route: Router) { }
 
+  contentMenuList = [
+    { menuText: "BYB", menuLink: "./" },
+    { menuText: "Script Guide", menuLink: "./script-guide" },
+    { menuText: "FAQ", menuLink: "./faq" }   
+  ];
   ngOnInit(): void {
-    $('#content-head-menu li').removeClass('active');
+  /*  $('#content-head-menu li').removeClass('active');
     $('#content-head-menu li:nth-child(2)').addClass('active');
 
     if (this.route.url.split('/').pop().toLowerCase() == 'content' ) {
       this.route.navigate(['/agency/content/byb']);
-    }
+    } */
   }
 
   ngAfterViewChecked(): void {
-    if (this.route.url.split('/').pop().toLowerCase() == 'content' ) {
+  /*  if (this.route.url.split('/').pop().toLowerCase() == 'content' ) {
       this.route.navigate(['/agency/content/byb']);
-    }
+    }  */
   }
 }

@@ -12,30 +12,42 @@ import { NotIntrestedComponent } from './prospect/components/not-intrested/not-i
 import { UpcomingActivitiesComponent } from './activities/upcoming/upcoming-activities/upcoming-activities.component';
 import { PassedActivitiesComponent } from './activities/passed/passed-activities/passed-activities.component';
 
+import { ContentComponent } from './content/content.component';
+
+import { BybComponent } from './content/byb/byb.component';
+import { FaqComponent } from './content/faq/faq.component';
+import { ScriptGuideComponent } from './content/script-guide/script-guide.component';
+
+
 const routes: Routes = [
   { 
-    path: '', 
-    component: AgencyComponent,
+    path: '', component: AgencyComponent,
     children: [
-      { path: '', component: ProspectComponent,
+      { path: '', component: ContentComponent,
       children: [
-        { path: '', component: DashboardComponent},
-        { path: 'registered-prospect', component: RegisteredProspectComponent},
-        { path: 'follow-up', component: FollowUpComponent},
-        { path: 'application-submitted', component: ApplicationSubmittedComponent},
-        { path: 'onboard', component: OnboardComponent},
-        { path: 'not-intrested', component: NotIntrestedComponent},
-      ]
+        { path: '', component: BybComponent },
+        { path: 'script-guide', component: ScriptGuideComponent },
+        { path: 'faq', component: FaqComponent },
+      ] 
       },
-      { path: 'content', loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
+      { path: 'prospect', 
+        component: ProspectComponent,    
+          children: [
+            { path: '', component: DashboardComponent},
+            { path: 'registered-prospect', component: RegisteredProspectComponent},
+            { path: 'follow-up', component: FollowUpComponent},
+            { path: 'application-submitted', component: ApplicationSubmittedComponent},
+            { path: 'onboard', component: OnboardComponent},
+            { path: 'not-intrested', component: NotIntrestedComponent},
+          ]     
+      },  
       { path: 'activities', component: ActivitiesComponent,
         children: [
           { path: '', component: UpcomingActivitiesComponent},
           { path: 'passed', component: PassedActivitiesComponent}
         ] 
       },
-    ] 
-  }
+    ]}    
 ];
 
 @NgModule({
