@@ -19,9 +19,9 @@ export class ScriptGuideComponent implements OnInit {
   constructor(private feraService: FeraService) { }
 
   ngOnInit(): void {
-    $('#content-nav li a').removeClass('active');
+    /*$('#content-nav li a').removeClass('active');
     $('#content-nav li:nth-child(2) a').addClass('active');
-
+*/
     this.search();
   }
 

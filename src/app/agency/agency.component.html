@@ -1,17 +1,15 @@
 <header>
     <ul id="content-head-menu" class="nav nav-pills">
-            
+        <!--   
             <li class="nav-item content-tab" *ngFor="let nav of agencyMenuList" routerLinkActive="active">
                 <a [routerLink]="[nav.menuLink]" class="nav-link"><span class="{{nav.menuStyle}}"></span>{{nav.menuText}}</a>
             </li>
-
-    <!--
-        <li class="nav-item content-tab"><a [routerLink]="['/agency/']" class="nav-link"><span class="fa fa-share-alt-square"></span>e-Presenter</a></li>
-        <li class="nav-item content-tab"><a [routerLink]="['/agency/prospect']" class="nav-link"><span class="lnr lnr-users"></span>e-Potential Agent</a></li>
-        <li class="nav-item content-tab"><a [routerLink]="['/agency/activities']" class="nav-link">
+       -->
+        <li class="nav-item content-tab" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ><a [routerLink]="['/agency/']" class="nav-link"><span class="fa fa-share-alt-square"></span>e-Presenter</a></li>
+        <li class="nav-item content-tab" routerLinkActive="active"><a [routerLink]="['/agency/prospect']" class="nav-link"><span class="lnr lnr-users"></span>e-Potential Agent</a></li>
+        <li class="nav-item content-tab" routerLinkActive="active"><a [routerLink]="['/agency/activities']" class="nav-link">
             <span class="fa fa-wpforms"></span>Activities</a>
         </li>
-        -->
     </ul>
 </header>
 

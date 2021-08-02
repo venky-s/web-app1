@@ -24,9 +24,9 @@ export class ActivitiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    $('#content-head-menu li').removeClass('active');
+    /*$('#content-head-menu li').removeClass('active');
     $('#content-head-menu li:nth-child(3)').addClass('active');
-
+*/
     this.feraService.getProfile(this.BindProfile, true);
   }
 

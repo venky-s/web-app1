@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  authPath: 'https://localhost:44399',
+  authPath: 'https://blueberry.etiqapartner.com.my/api/auth', //https://localhost:44399
   feraUiPath: 'http://localhost:4200',
-  feraApiPath: 'https://localhost:44397',
-  agentApiPath: 'https://localhost:44387',
+  feraApiPath: 'https://blueberry.etiqapartner.com.my/api/fera',
+  agentApiPath: 'https://blueberry.etiqapartner.com.my/api/partner',
 }
 
 /*
