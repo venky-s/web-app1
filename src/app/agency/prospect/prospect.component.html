@@ -71,7 +71,7 @@
                 <span class="or_design">OR</span>
                 <div class="profile-survey col-lg-12 col-md-12">
                     <div>
-                        <a href="::javascript" class="btn btn-warning" target="_blank"><span class="lnr lnr-link"></span>Visit the profile registration here</a>
+                        <a href="::javascript" class="btn btn-warning" data-toggle="modal" data-target=".survey-form-modal" target="_blank"><span class="lnr lnr-link"></span>Visit the profile registration here</a>
                     </div>
                 </div>
             </div>
@@ -82,5 +82,16 @@
         </div>
         
       </div>
+    </div>
+</div>
+
+
+<div class="modal fade survey-form-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">            
+            <div class="modal-body" style="padding-top: 0;"> 
+                <app-survey-form></app-survey-form>       
+            </div>
+        </div>
     </div>
 </div>

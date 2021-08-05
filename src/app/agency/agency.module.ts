@@ -21,6 +21,8 @@ import { ContentComponent } from './content/content.component';
 import { BybComponent } from './content/byb/byb.component';
 import { FaqComponent } from './content/faq/faq.component';
 import { ScriptGuideComponent } from './content/script-guide/script-guide.component';
+import { AddProspectComponent } from './prospect/shared/add-prospect/add-prospect.component';
+import { SurveyFormComponent } from './prospect/shared/survey-form/survey-form.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { ScriptGuideComponent } from './content/script-guide/script-guide.compon
     BybComponent,
     FaqComponent,
     ScriptGuideComponent,
+    AddProspectComponent,
+    SurveyFormComponent,
   ],
   imports: [
     CommonModule,

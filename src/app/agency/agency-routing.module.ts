@@ -17,6 +17,7 @@ import { ContentComponent } from './content/content.component';
 import { BybComponent } from './content/byb/byb.component';
 import { FaqComponent } from './content/faq/faq.component';
 import { ScriptGuideComponent } from './content/script-guide/script-guide.component';
+import { SurveyFormComponent } from './prospect/shared/survey-form/survey-form.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,7 @@ const routes: Routes = [
           { path: 'passed', component: PassedActivitiesComponent}
         ] 
       },
+      { path: 'survery', component: SurveyFormComponent }
     ]}    
 ];
 

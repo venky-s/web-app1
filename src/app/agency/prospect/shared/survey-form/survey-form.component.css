@@ -1,0 +1,89 @@
+
+/* Model*/
+
+.modal-dialog {
+    max-width: 90%;   
+    margin: 0 auto;
+    padding: 0;
+    background-color: #000;
+}  
+.modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+}
+.e-font-style, .container {
+    font-family: sans-serif;
+}
+
+
+.question-container ul li {
+    padding: 8px 12px;
+    border: 1px solid #CCC;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.ques-ans {
+    margin-top: 40px;
+}
+.question-container li input[type="radio"]:checked {
+    background-color: #bbb;
+    
+}
+
+
+/* Stepper */
+/*
+.container {
+    width:100%;
+    margin-top: 100px;
+    }
+    */
+    .progressbar {
+    counter-reset: step;
+    }
+    .progressbar li{
+    list-style-type: none;
+    float: left;
+    width: 33.33%;
+    position:relative;
+    text-align: center;
+    font-weight: 600;
+    }
+    .progressbar li:before {
+    /* CSS for creating steper block before the li item*/
+    content: "";
+    counter-increment: step;
+    height:30px;
+    width:30px;
+    line-height: 30px;
+    border: 2px solid #ddd;
+    display:block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    }
+    .progressbar li:after {
+    /* CSS for creating horizontal line*/
+    content:"";
+    position: absolute;
+    width:100%;
+    height:2px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+    }
+    .progressbar li:first-child:after {
+        content:none;
+    }
+    .progressbar li.active {
+    color:#27ae60;
+    }
+    .progressbar li.active:before {
+    border-color:#27ae60;
+    }
+    .progressbar li.active + li:after{
+    background-color:#27ae60;
+    }
