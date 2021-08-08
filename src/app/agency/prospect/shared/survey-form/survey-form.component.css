@@ -26,9 +26,20 @@
 .ques-ans {
     margin-top: 40px;
 }
-.question-container li input[type="radio"]:checked {
-    background-color: #bbb;
-    
+.question-container ul li div {
+    display: inline-block;
+    position: relative;
+}
+.question-container2 ul li input[type="radio"]:checked + label {
+    background: #000;
+    border-color: green;
+    color: white;
+}
+
+.question-container ul li:has(:checked) {
+    background: #000;
+    border-color: green;
+    color: white;
 }
 
 .star {
@@ -51,6 +62,20 @@
     margin-left: 15px;
     font-weight: 600;
 }
+.survey .nav-tabs {
+    border-bottom: none;
+}
+.survey .nav-link.active {
+    border-color: #FFF;
+}
+
+.modal-dialog, .modal-lg {
+    max-width: 85%;    
+}
+.welcome-msg {
+    padding: 20px 0;
+    margin: 20px 0;
+}
 /* Stepper */
 /*
 .container {
@@ -62,47 +87,62 @@
     counter-reset: step;
     }
     .progressbar li{
-    list-style-type: none;
-    float: left;
-    width: 33.33%;
-    position:relative;
-    text-align: center;
-    font-weight: 600;
+        list-style-type: none;
+        float: left;
+        width: 25%;
+        position:relative;
+        text-align: center;
+        font-weight: 600;
+    }
+    .progressbar li.bar-style:before {
+        /* CSS for creating steper block before the li item*/
+       
+        display:none;
+        text-align: center;
+       
     }
     .progressbar li:before {
-    /* CSS for creating steper block before the li item*/
-    content: "";
-    counter-increment: step;
-    height:30px;
-    width:30px;
-    line-height: 30px;
-    border: 2px solid #ddd;
-    display:block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color: white;
+        /* CSS for creating steper block before the li item*/
+        content: "";
+        counter-increment: step;
+        height:8px;
+        width:8px;
+        line-height: 30px;
+        border: 2px solid #FFBF00;
+        display:block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #FFBF00;
     }
+    
+    
     .progressbar li:after {
     /* CSS for creating horizontal line*/
-    content:"";
-    position: absolute;
-    width:100%;
-    height:2px;
-    background-color: #ddd;
-    top: 15px;
-    left: -50%;
-    z-index: -1;
+        content:"";
+        position: absolute;
+        width:100%;
+        height:2px;
+        background-color: #DDD;
+        top: 3px;
+        left: -50%;
+        z-index: -1;
     }
     .progressbar li:first-child:after {
         content:none;
+        border: 1px solid #FFBF00;
     }
     .progressbar li.active {
-    color:#27ae60;
+        color:#FFBF00;        
     }
     .progressbar li.active:before {
-    border-color:#27ae60;
+        border-color:#FFBF00;
     }
-    .progressbar li.active + li:after{
-    background-color:#27ae60;
+    .progressbar li.active + li:after {
+        background-color:#FFBF00;
+    }
+
+    .progressbar li a {
+        font-size: 14px;
+        font-weight: normal;
     }

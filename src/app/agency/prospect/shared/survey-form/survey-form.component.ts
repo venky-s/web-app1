@@ -12,4 +12,20 @@ export class SurveyFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  profileLang = '1';
+  selectedValue: any;
+
+  data = [
+    {
+      id: 1,
+      name: 'English'
+    },
+    {
+      id: 2,
+      name: 'ML'
+    }];
+    selectLang() {
+      this.selectedValue = this.profileLang;
+  }
+
 }
