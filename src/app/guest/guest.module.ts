@@ -6,6 +6,7 @@ import { GuestComponent } from './guest.component';
 
 import { LoginComponent } from './login/login.component';
 import { AnonymousComponent } from './anonymous/anonymous.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { AnonymousComponent } from './anonymous/anonymous.component';
   ],
   imports: [
     CommonModule,
-    GuestRoutingModule
+    GuestRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class GuestModule { }
