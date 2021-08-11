@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-survey-form',
@@ -7,25 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'bm']);
+    translate.setDefaultLang('en');
+   }
 
+   
   ngOnInit(): void {
   }
+   
 
-  profileLang = '1';
-  selectedValue: any;
+  profileLang = 'en';
+  //selectedValue: any;
 
   data = [
     {
-      id: 1,
+      id: 'en',
       name: 'English'
     },
     {
-      id: 2,
-      name: 'ML'
+      id: 'bm',
+      name: 'BM'
     }];
     selectLang() {
-      this.selectedValue = this.profileLang;
+      //this.selectedValue = this.profileLang;
+      //translate.use(this.profileLang);
   }
 
 }

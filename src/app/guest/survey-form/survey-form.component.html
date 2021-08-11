@@ -4,8 +4,8 @@
         <div class="col-md-4"></div>
         <div class="col-md-4 text-center" style="font-size: 20px;">Profiling Question</div>
         <div class="col-md-4">                
-            <span class="pull-right">Language <select name="my-select" class="" [(ngModel)]="profileLang" (change)="selectLang()" style="padding: 5px;
-            border-radius: 5px;font-size: 11px;">
+            <span class="pull-right">Language <select name="my-select" class="" [(ngModel)]="profileLang" style="padding: 5px;
+            border-radius: 5px;font-size: 11px;" (change)="translate.use(langSelect.value)" #langSelect>
                 <option [value]="item.id" *ngFor="let item of data" class="dropdown-item">
                     {{item.name}}
                 </option>
@@ -39,18 +39,18 @@
                             <span style="font-size: 14px;color: #0DA193;">Thank you for participating in this simple profiling question and it only take less than 2 minutes of your time</span>
                         </div>
                     </div>                
-                    <h5>Getting to know you</h5>  
-                    <p class="text-muted" style="font-size: 14px;">This form is intended to get to know you better as a person.</p>
+                    <h5> {{ "INTRO" | translate }} </h5>  
+                    <p class="text-muted" style="font-size: 14px;"> {{ "INTRO_DESC" | translate }}</p>
                     <h5 style="color: #F15A22;font-size: 16px;padding: 15px 0;">*Mandatory</h5>
                     <div class="question-container">
                         
                 <div class="ques-ans">
-                    <p class="list-heading">1. Select your Current Status <span class="star">*</span></p>
+                    <p class="list-heading"> 1. {{ "QUESTION_1" | translate }} <span class="star">*</span></p>
                     <ul class="list-unstyled"> 
                         <li><div class="form-check">
                                 <input class="form-check-input" type="radio" name="current_status" id="radio11">
                                 <label class="form-check-label" for="radio11">
-                                   Final Year Student/Fresh Graduate
+                                   {{ "ANSWER_1A" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -58,7 +58,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current_status" id="radio12">
                                 <label class="form-check-label" for="radio12">
-                                    Working
+                                     {{ "ANSWER_1B" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -66,7 +66,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current_status" id="radio13">
                                 <label class="form-check-label" for="radio13">
-                                    Self Employed/Business Owner
+                                     {{ "ANSWER_1C" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -74,12 +74,12 @@
                 </div>
 
                     <div class="ques-ans">
-                    <p class="list-heading">2. Please share your current income </p>
+                    <p class="list-heading">2. {{ "QUESTION_2" | translate }} </p>
                     <ul class="list-unstyled"> 
                         <li><div class="form-check">
                                 <input class="form-check-input" type="radio" name="current income" id="radio21">
                                 <label class="form-check-label" for="radio21">
-                                    No income as yet
+                                        {{ "ANSWER_2A" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -87,7 +87,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current income" id="radio22">
                                 <label class="form-check-label" for="radio22">
-                                        Below RM2,000
+                                        {{ "ANSWER_2B" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -95,7 +95,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current income" id="radio23">
                                 <label class="form-check-label" for="radio23">
-                                        RM2,001 - RM5,000
+                                        {{ "ANSWER_2C" | translate }}
                                 </label>
                             </div>
                         </li>                    
@@ -103,7 +103,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current income" id="radio24">
                                 <label class="form-check-label" for="radio24">
-                                        RM5,001 - RM8,000
+                                        {{ "ANSWER_2D" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -111,7 +111,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="current income" id="radio25">
                                 <label class="form-check-label" for="radio25">
-                                        Above RM8,000
+                                        {{ "ANSWER_2E" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -119,12 +119,12 @@
                 </div>
 
                     <div class="ques-ans">
-                        <p class="list-heading">3. Does your current income support your hobby? </p>
+                        <p class="list-heading">3.{{ "QUESTION_3" | translate }} <span class="star">*</span></p>
                         <ul class="list-unstyled"> 
                             <li><div class="form-check">
                                     <input class="form-check-input" type="radio" name="hobby" id="radio31">
                                     <label class="form-check-label" for="radio31">
-                                    Yes
+                                            {{ "ANSWER_3A" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -132,7 +132,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="hobby" id="radio32">
                                     <label class="form-check-label" for="radio32">
-                                        No
+                                            {{ "ANSWER_3B" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -140,7 +140,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="hobby" id="radio33">
                                     <label class="form-check-label" for="radio33">
-                                            I am not sure
+                                            {{ "ANSWER_3C" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -148,12 +148,12 @@
                         </div>
 
                     <div class="ques-ans">
-                        <p class="list-heading">4. Does your current income help you to achieve your dream? </p>
+                        <p class="list-heading">4.{{ "QUESTION_4" | translate }}<span class="star">*</span> </p>
                         <ul class="list-unstyled"> 
                             <li><div class="form-check">
                                     <input class="form-check-input" type="radio" name="dream" id="radio41">
                                     <label class="form-check-label" for="radio41">
-                                    Yes
+                                            {{ "ANSWER_4A" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -161,7 +161,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="dream" id="radio42">
                                     <label class="form-check-label" for="radio42">
-                                        No
+                                            {{ "ANSWER_4B" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -169,7 +169,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="dream" id="radio43">
                                     <label class="form-check-label" for="radio43">
-                                            I am not sure
+                                            {{ "ANSWER_4C" | translate }}
                                     </label>
                                 </div>
                             </li>
@@ -177,12 +177,12 @@
                     </div>
 
                     <div class="ques-ans">
-                    <p class="list-heading">5. Are you happy with your current status/ lifestyle? </p>
+                    <p class="list-heading">5. {{ "QUESTION_5" | translate }}<span class="star">*</span> </p>
                     <ul class="list-unstyled"> 
                         <li><div class="form-check">
                                 <input class="form-check-input" type="radio" name="lifestyle" id="radio51">
                                 <label class="form-check-label" for="radio51">
-                                Yes
+                                        {{ "ANSWER_5A" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -190,19 +190,19 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="lifestyle" id="radio52">
                                 <label class="form-check-label" for="radio52">
-                                    No
+                                        {{ "ANSWER_5B" | translate }}
                                 </label>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="ques-ans">
-                    <p class="list-heading">6. Would you want to explore potential of earning more? </p>
+                    <p class="list-heading">6. {{ "QUESTION_6" | translate }} <span class="star">*</span></p>
                     <ul class="list-unstyled"> 
                         <li><div class="form-check">
                                 <input class="form-check-input" type="radio" name="potential" id="radio61">
                                 <label class="form-check-label" for="radio61">
-                                Yes
+                                        {{ "ANSWER_6A" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -210,19 +210,19 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="potential" id="radio62">
                                 <label class="form-check-label" for="radio62">
-                                    No
+                                        {{ "ANSWER_6B" | translate }}
                                 </label>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="ques-ans">
-                    <p class="list-heading">7. Would you be interested to start a small capital business?</p>
+                    <p class="list-heading">7. {{ "QUESTION_7" | translate }}<span class="star">*</span></p>
                     <ul class="list-unstyled"> 
                         <li><div class="form-check">
                                 <input class="form-check-input" type="radio" name="capital business" id="radio71">
                                 <label class="form-check-label" for="radio71">
-                                        Yes, because I want to have an extra income
+                                        {{ "ANSWER_7A" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -230,7 +230,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="capital business" id="radio72">
                                 <label class="form-check-label" for="radio72">
-                                        Yes, because I want to leave a legecy
+                                        {{ "ANSWER_7B" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -238,7 +238,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="capital business" id="radio73">
                                 <label class="form-check-label" for="radio73">
-                                        Yes, because I have no option (unemployed)
+                                        {{ "ANSWER_7C" | translate }}
                                 </label>
                             </div>
                         </li>
@@ -246,10 +246,18 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="capital business" id="radio74">
                                 <label class="form-check-label" for="radio74">
-                                        No, because I am not business minded
+                                        {{ "ANSWER_7D" | translate }}
                                 </label>
                             </div>
                         </li>
+                        <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="capital business" id="radio74">
+                                    <label class="form-check-label" for="radio74">
+                                            {{ "ANSWER_7E" | translate }}
+                                    </label>
+                                </div>
+                            </li>
                     </ul>
                     </div>
                       
@@ -264,31 +272,31 @@
             <div class="col-sm-12">
             <div class="" style="margin-top: 20px;font-size: 15px;">
                 <!--<h5><span class="rounded-circle name-icon" style="">S</span> Name AAA</h5> -->
-                <h5>Your personal details</h5>  
-                <p class="text-muted" style="font-size: 14px;">Please fill up following filed for us to keep ypu updated!</p>
+                <h5> {{ "PERSONAL_INFO" | translate }}</h5>  
+                <p class="text-muted" style="font-size: 14px;">Please fill up following filed for us to keep you updated!</p>
                 <h5 style="color:#F15A22;font-size: 16px;padding: 15px 0;">*Mandatory</h5>
                 <div class="follow-up-profile" style="margin-top: 20px;">
                     <form>
                         <div class="mb-3">
-                            <label for="inputName" class="form-label">Name<span class="star">*</span></label>
+                            <label for="inputName" class="form-label">{{ "NAME" | translate }}<span class="star">*</span></label>
                             <input type="text" class="form-control col-md-6" id="inputName" aria-describedby="">                            
                         </div>
                         <div class="mb-3 input-group">
-                            <label for="mobile" class="form-label  col-md-12" style="padding-left: 0;">Mobile No.<span class="star">*</span></label>
+                            <label for="mobile" class="form-label  col-md-12" style="padding-left: 0;">{{ "CONTACT" | translate }} ({{ "CONTACTABLE" | translate }})<span class="star">*</span></label>
                             <input type="text" class="form-control form-group col-md-1" id="mobile_code"><span>-</span>
                             <input type="text" class="form-control form-group col-md-4" id="mobile">                            
                         </div>
                         <div class="mb-3">
-                            <label for="inputEmail" class="form-label">Email address<span class="star">*</span></label>
+                            <label for="inputEmail" class="form-label">{{ "EMAIL" | translate }} ({{ "ACTIVE" | translate }})<span class="star">*</span></label>
                             <input type="email" class="form-control col-md-6" id="inputEmail1" aria-describedby="emailHelp">                            
                         </div>
                         <div class="mb-3 vehicle">
-                            <label for="vehicle" class="form-label">Vehicle that you own<span class="star">*</span></label>                            
+                            <label for="vehicle" class="form-label">{{ "VEHICLE" | translate }}<span class="star">*</span></label>                            
                             <ul class="list-unstyled"> 
                                 <li><div class="form-check">
                                         <input class="form-check-input" type="radio" name="dream" id="vehicle1">
                                         <label class="form-check-label" for="vehicle1">
-                                        Car
+                                                {{ "VEHICLE_ANS1" | translate }}
                                         </label>
                                     </div>
                                 </li>
@@ -296,7 +304,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="dream" id="vehicle2">
                                         <label class="form-check-label" for="vehicle2">
-                                            Motorcycle
+                                                {{ "VEHICLE_ANS2" | translate }}
                                         </label>
                                     </div>
                                 </li>
@@ -304,7 +312,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="dream" id="vehicle3">
                                         <label class="form-check-label" for="vehicle3">
-                                            I don't have any vehicle
+                                                {{ "VEHICLE_ANS3" | translate }}
                                         </label>
                                     </div>
                                 </li>

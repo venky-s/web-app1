@@ -23,6 +23,9 @@ import { FaqComponent } from './content/faq/faq.component';
 import { ScriptGuideComponent } from './content/script-guide/script-guide.component';
 import { AddProspectComponent } from './prospect/shared/add-prospect/add-prospect.component';
 import { SurveyFormComponent } from '../guest/survey-form/survey-form.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../app.module';
 
 
 @NgModule({
@@ -51,7 +54,15 @@ import { SurveyFormComponent } from '../guest/survey-form/survey-form.component'
     CommonModule,
     AgencyRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ]
 })
 export class AgencyModule { }
