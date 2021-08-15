@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   HttpResponse,
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { AwaiterService } from './awaiter.service';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AwaiterInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
 
-  constructor(private awaiterService: AwaiterService) { }
+  constructor(private awaiterService: AwaiterService, private router: Router) { }
 
   removeRequest(req: HttpRequest<any>) {
     const i = this.requests.indexOf(req);
@@ -24,12 +27,12 @@ export class AwaiterInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     this.requests.push(req);
 
-    console.log("No of requests--->" + this.requests.length);
+    //console.log("No of requests--->" + this.requests.length);
 
     this.awaiterService.isLoading.next(true);
+    
     return Observable.create(observer => {
       const subscription = next.handle(req)
         .subscribe(
@@ -40,7 +43,7 @@ export class AwaiterInterceptor implements HttpInterceptor {
             }
           },
           err => {
-            //alert('error' + err);
+            //console.info('error' + err);
             this.removeRequest(req);
             observer.error(err);
           },

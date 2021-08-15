@@ -57,45 +57,20 @@
         </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let row of prospectList">
                 <td>
                    <input class="" type="checkbox" value="">
                 </td>
-                <td><span class="rounded-circle name-icon" style="">S</span> Name AAA</td>
-                <td>Fresh Graduate</td>
-                <td>010-345 6789</td>
-                <td>21 June 2021</td>
+                <td><span class="rounded-circle name-icon" style="">{{row.name.substr(0, 1) | uppercase}}</span> {{row.name}}</td>
+                <td>{{row.profileStatusName}}</td>
+                <td>{{row.mobileContact}}</td>
+                <td>{{row.registeredDate | date}}</td>
                 <td>BYB June 2021</td>
                 <td>Yes</td>
                 <td style="color: #007885;"> View > </td>
                 <td><span class="more-option-icon"></span></td>  
             </tr>
-            <tr>
-                <td scope="row">
-                    <input class="" type="checkbox" value="">
-                </td>
-                <td><span class="rounded-circle name-icon" style="">A</span> Name AAA</td>
-                <td>Fresh Graduate</td>
-                <td>010-345 6789</td>
-                <td>21 June 2021</td>
-                <td>BYB June 2021</td>
-                <td> - </td>
-                <td style="color: #007885;"> View > </td>
-                <td><span class="more-option-icon"></span></td>
-            </tr>     
-            <tr>
-                <td scope="row">
-                    <input class="" type="checkbox" value="">
-                </td>
-                <td><span class="rounded-circle name-icon" style="">S</span> Name AAA</td>
-                <td>Fresh Graduate</td>
-                <td>010-345 6789</td>
-                <td>21 June 2021</td>
-                <td> - </td>
-                <td> - </td>
-                <td style="color: #007885;"> View > </td>
-                <td><span class="more-option-icon"></span></td>
-            </tr>            
+                    
         </tbody>
     </table>
 </div>

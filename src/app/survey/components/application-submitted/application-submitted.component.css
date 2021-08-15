@@ -1,0 +1,60 @@
+.wrapper {
+    height: 50vh;
+    background-color: #FFF3CE;
+}
+
+.wrapper header {
+    padding: 20vh 20px 30px 20px;
+    text-align: center;
+}
+
+.wrapper main {
+    margin: 0 auto;
+    padding: 20px;
+    width: 50vw;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+}
+
+.wrapper main>div:first-child {
+    margin-bottom: 20px;
+}
+
+.line-height {
+    padding: 3px 1px;
+}
+
+.field-margin {
+    padding-left: 10px;
+}
+
+@media (max-width:768px) {
+    .wrapper header {
+        padding: 10vh 20px 30px 20px;
+    }
+    .wrapper main {
+        width: 80vw;
+    }
+    .wrapper main>div:nth-child(2)>div:nth-child(2) {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width:400px) {
+    .wrapper {
+        height: 60vh;
+    }
+    .wrapper header {
+        padding: 5vh 15px 20px 15px;
+    }
+    .wrapper main {
+        width: 90vw;
+        margin-bottom: 20px;
+    }
+    .wrapper main>div:nth-child(2)>div:nth-child(2) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}

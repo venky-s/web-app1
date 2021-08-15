@@ -16,7 +16,7 @@ export class LoginComponent {
       var params = new URLSearchParams(location.search);
 
       let authCode = params.get('AuthCode');
-      authCode = "8NTccdOgsfYB6Kdr1iJcmqEF2YfLjg3tvACcUmLdFp7BISO8Wa";
+      authCode = "y3DrsMu1Csg4hd4OeF547X0eKIeoRtkS5KZX29wq6TYT9ChoJapMw";
       if (authCode === undefined || authCode === null || authCode.length == 0) {
         $this.router.navigateByUrl('/');
         return;

@@ -9,7 +9,7 @@ declare var $: any;
   providedIn: 'root'
 })
 export class AgentService {
-  AccessInfoPath = '/access/info';
+  AccessInfoPath = '/me';
 
   constructor(private http: HttpClient, private feraService: FeraService) { }
 

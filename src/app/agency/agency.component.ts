@@ -17,32 +17,30 @@ export class AgencyComponent implements OnInit, AfterViewInit {
   userProfile: UserProfile;
   prospectEmail: string = '';
   sendQrMsg: string;
-  
+
   agencyMenuList = [
     { menuText: "e-Presenter", menuLink: "./", menuStyle:"fa fa-share-alt-square" },
     { menuText: "e-Potential Agent", menuLink: "./prospect", menuStyle:"lnr lnr-users" },
     { menuText: "Activities", menuLink: "./activities", menuStyle:"fa fa-wpforms" }   
   ];
-
+  
   constructor(private router: Router, private feraService: FeraService) {
     this.userProfile = new UserProfile('pending...','pending...','pending...','pending...','pending...','pending...','pending...','pending...',null,null);
   }
 
   ngOnInit(): void {
-    //let res = this.feraService.getAuthorizeAgency(this.AuthorizeAgency, true);
-    let jwt: IdTokenJWT = {nameid: "100", unique_name: "Test User", role: "Dev"}
-    this.user = new User("100", "Test User");
+    let res = this.feraService.getAuthorizeAgency(this.AuthorizeAgency, true);
   }
 
   ngAfterViewInit(): void {
-   /* $("#tabSwitch > li").click(function(){
+    $("#tabSwitch > li").click(function(){
       var $this = $(this);
       $this.siblings().removeClass("active");
       $this.addClass("active");
       var target = $(document.getElementById($this.data("target")));
       target.siblings().hide();
       target.show();
-    }); */
+    });
   }
 
   AuthorizeAgency = (success: boolean): void => {

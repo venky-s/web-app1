@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { GuestComponent } from './guest.component';
 import { AnonymousComponent } from './anonymous/anonymous.component';
 import { LoginComponent } from './login/login.component';
-import { SurveyFormComponent } from './survey-form/survey-form.component';
 
 const routes: Routes = [
   { 
@@ -11,7 +10,6 @@ const routes: Routes = [
     children: [
       { path: "", component:AnonymousComponent },
       { path: "login", component:LoginComponent },
-      { path: 'survery-form', component: SurveyFormComponent }  
     ]},
 ];
 

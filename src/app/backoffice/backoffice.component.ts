@@ -20,8 +20,6 @@ export class BackofficeComponent implements OnInit {
 
   ngOnInit(): void {
     this.feraService.getAuthorizeBackoffice(this.AuthorizeBackoffice, true);
-    //let jwt: IdTokenJWT = {nameid: "100", unique_name: "Test User", role: "Dev"}
-    //this.user = new User("100", "Test User");
 
     $('#sidebarCollapse').on('click', function () {
       $('#menuClose').toggle();

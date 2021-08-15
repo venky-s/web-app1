@@ -1,8 +1,11 @@
 import { Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { SessionService } from './session.service';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { QuestionAnswer } from '../models/Survey';
 
 declare var $: any;
 
@@ -13,22 +16,37 @@ export class FeraService {
   private http: HttpClient;
   private rootUrl = environment.feraApiPath;
   private getTokenPath = '/token';
+  private getQRIdPath = '/qrid';
+  private submitSurveyPath = '/survey';
   private renewTokenPath = '/token/renew';
   private authorizePath = '/authorize';
   private authorizeBackofficePath = '/authorize/backoffice';
   private authorizeAgencyPath = '/authorize/agency';
   private profilePath = '/profile';
-  private sendQRPath = '/profile/sendemail';
+  private sendQRPath = '/profile/sendemail'; 
   private fileStagePath = '/file';
   private bybPath = '/byb';
   private scriptGuidePath = '/scriptguide';
   private faqPath = '/faq';
+  private leaderQueryProspectPath = "/agents/{0}/prospects";
+  private leaderGetProspectPath = "/agents/{0}/prospects/{1}";
 
   private countGetToken = 0;
   private countRefreshToken = 0;
 
-  constructor(private sessionService: SessionService, private injector: Injector) {
+  constructor(private sessionService: SessionService, private router: Router, private injector: Injector) {
     this.http = injector.get(HttpClient);
+  }
+
+  errorHandler(error: any, sessionService: SessionService, router: Router) {
+    //console.info(error);
+    if (error instanceof HttpErrorResponse) {
+      if (error.status === 401 || error.status === 403) {
+        sessionService.logout();
+        router.navigateByUrl('/');
+      }
+    }
+    return throwError(error);
   }
 
   getToken = (authCode:string, callback: Function, fresh: boolean = false) => {
@@ -38,30 +56,200 @@ export class FeraService {
     else this.countGetToken++;
 
     if (this.countGetToken >= 3) {
+      this.sessionService.logout();
       var router = this.injector.get(Router);
       router.navigateByUrl('/');
     }
 
-    //$('#awaiting').show();
     let resp = this.http.get(environment.feraApiPath + this.getTokenPath + '/' + authCode, { responseType: 'text' })
     resp.subscribe((data: string) => {
       if (data !== undefined && data !== null && data.length > 0) {
         callback(data);
-        //$('#awaiting').hide();
         return;
       }
       this.getToken(authCode, callback);
-      //$('#awaiting').hide();
     },
     error => {
       this.getToken(authCode, callback);
-      //$('#awaiting').hide();
+    });
+  }
+
+  getQRId = (qrid:string, callback: Function) => {
+    console.info("getQRId");
+
+    let resp = this.http.get(environment.feraApiPath + this.getQRIdPath + '/' + qrid, { 
+      responseType: 'json',
+      headers: new HttpHeaders().set('X-App-Id', '345678')
+    })
+    resp.subscribe((data: any) => {
+      if (data === undefined || data === null) {
+        callback(null);
+        return;
+      }
+
+      if (data.code !== undefined && data.code != null) {
+        callback(null);
+        return;
+      }
+
+      callback(data);
+      return;
+    },
+    error => {
+      console.info(error);
+      callback(null);
+    });
+  }
+
+  submitSurvey = (qrid:string, profileName: string, mobileNumber: string, emailAddress: string, vehicleTypeId: number, answers: QuestionAnswer[], callback: Function): void => {
+    console.info("submitSurvey");    
+    
+    this.http.post(environment.feraApiPath + this.submitSurveyPath + "?qrid=" + qrid, { 
+      profileName: profileName, mobileNumber: mobileNumber, emailAddress: emailAddress, vehicleTypeId: vehicleTypeId, answers: answers
+    }, { 
+      responseType: 'json',
+      headers: new HttpHeaders().set('X-App-Id', '345678'),
+      observe: 'response'
+    }).subscribe(response  => {
+      console.info(response);
+      if (response.status == 201) {
+        callback(response.body);
+        return;
+      }
+
+      callback(null);
+    },
+    error => {
+      console.info(error);
+      callback(null);
+    });
+  }
+
+  getSurveyContact = (refId:string, callback: Function): void => {
+    console.info("submitSurvey");    
+    
+    this.http.get(environment.feraApiPath + this.submitSurveyPath + "?refid=" + refId, { 
+      responseType: 'json',
+      headers: new HttpHeaders().set('X-App-Id', '345678'),
+      observe: 'response'
+    }).subscribe(response  => {
+      //console.info(response);
+      if (response.status == 200) {
+        callback(response.body);
+        return;
+      }
+
+      callback(null);
+    },
+    error => {
+      console.info(error);
+      callback(null);
+    });
+  }
+
+  queryProspectByLeader = (keywords: string, profileStatus: number, prospectStatus: number, pgNum: number, sort: number, callback: Function, fresh: boolean = false): void => {
+    console.info("queryProspectByLeader");
+    let idToken = sessionStorage.getItem("idToken");
+    let userName = sessionStorage.getItem("userName");
+    if (idToken === undefined || idToken === null) {
+      callback(false);
+      return;
+    }
+
+    var query = '';
+    if (keywords !== null && keywords.length > 0) {
+      if (query.length == 0) query += '?';
+      else query += '&';
+      query += 'keywords=' + keywords;
+    }
+    if (profileStatus !== undefined && profileStatus !== null) {
+      if (query.length == 0) query += '?';
+      else query += '&';
+      query += 'profileStatus=' + profileStatus;
+    }
+    if (prospectStatus !== undefined && prospectStatus !== null) {
+      if (query.length == 0) query += '?';
+      else query += '&';
+      query += 'prospectStatus=' + prospectStatus;
+    }
+    if (pgNum !== null) {
+      if (query.length == 0) query += '?';
+      else query += '&';
+      query += 'pgNum=' + pgNum;
+    }
+    if (sort !== null) {
+      if (query.length == 0) query += '?';
+      else query += '&';
+      query += 'sorting=' + sort;
+    }
+    
+    this.http.get(environment.feraApiPath + this.leaderQueryProspectPath.replace('{0}', userName) + query, { 
+      responseType: 'json',
+      headers: new HttpHeaders().set('Authorization',  `Bearer ${idToken}`).set('X-App-Id', '345678')
+    }).subscribe((data: any) => {
+      if (data === undefined && data === null) {
+        callback(null);
+        return;
+      }
+
+      if (data.code !== undefined && data.code !== null) {
+        if (data.code == 401001) {
+          var $this = this;
+          this.refreshToken(function() { $this.queryProspectByLeader(keywords, profileStatus, prospectStatus, pgNum, sort, callback); }, fresh);
+          return;
+        }
+        callback(null);
+        return;
+      }
+
+      callback(data);
+    },
+    error => {
+      console.info(error);
+      callback(null);
+    });
+  }
+
+  getProspectByLeader = (prospectUid: string, callback: Function, fresh: boolean = false): void => {
+    console.info("getProspectByLeader");
+    let idToken = sessionStorage.getItem("idToken");
+    let userName = sessionStorage.getItem("userName");
+    if (idToken === undefined || idToken === null) {
+      callback(false);
+      return;
+    }
+    
+    this.http.get(environment.feraApiPath + this.leaderQueryProspectPath.replace('{0}', userName).replace('{1}', prospectUid), { 
+      responseType: 'json',
+      headers: new HttpHeaders().set('Authorization',  `Bearer ${idToken}`).set('X-App-Id', '345678')
+    }).subscribe((data: any) => {
+      if (data === undefined && data === null) {
+        callback(null);
+        return;
+      }
+
+      if (data.code !== undefined && data.code !== null) {
+        if (data.code == 401001) {
+          var $this = this;
+          this.refreshToken(function() { $this.getProspectByLeader(prospectUid, callback); }, fresh);
+          return;
+        }
+        callback(null);
+        return;
+      }
+
+      callback(data);
+    },
+    error => {
+      console.info(error);
+      callback(null);
     });
   }
 
   getProfile = (callback: Function, fresh: boolean = false): void => {
     console.info("getProfile");
     let idToken = sessionStorage.getItem("idToken");
+    console.info(idToken);
     if (idToken === undefined || idToken === null) {
       callback(null);
       return;
@@ -103,10 +291,11 @@ export class FeraService {
     }
 
     //$('#awaiting').show();
-    this.http.get(environment.feraApiPath + this.authorizePath, { 
+    this.http.get<any>(environment.feraApiPath + this.authorizePath, { 
       responseType: 'json',
       headers: new HttpHeaders().set('Authorization',  `Bearer ${idToken}`).set('X-App-Id', '345678')
-    }).subscribe((data: any) => {
+    }).subscribe(data => {
+      //console.info(data);
       if (data !== undefined && data != null) {
         if (data.code !== undefined && data.code != null) {
           if (data.code == 401001) {

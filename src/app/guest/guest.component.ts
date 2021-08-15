@@ -12,10 +12,10 @@ export class GuestComponent implements OnInit {
   constructor(private router: Router, private feraService: FeraService) { }
 
   ngOnInit(): void {
-    let idToken = sessionStorage.getItem("idToken");
-    if (idToken !== undefined && idToken !== null) {
-      this.feraService.getAuthorize(this.TryAuthorize, true);
-    }
+      let idToken = sessionStorage.getItem("idToken");
+      if (idToken !== undefined && idToken !== null) {
+        this.feraService.getAuthorize(this.TryAuthorize, true);
+      }
   }
 
   TryAuthorize = (id: number): void => {

@@ -1,0 +1,340 @@
+<div class="container survey">
+    <header class="row" style="padding:10px 20px 20px 20px">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center" style="font-size: 20px;">Profiling Question</div>
+        <div class="col-md-4">
+            <span class="pull-right">Language <select name="my-select" class="" [(ngModel)]="profileLang" style="padding: 5px;
+            border-radius: 5px;font-size: 11px;" (change)="translate.use(langSelect.value)" #langSelect>
+                <option [value]="item.id" *ngFor="let item of data" class="dropdown-item">
+                    {{item.name}}
+                </option>
+            </select>
+            </span>
+        </div>
+    </header>
+    <ul class="nav nav-tabs progressbar" style="font-size: 24px;margin-top: 20px;">
+        <li class="active bar-style"></li>
+        <li class="nav-item">
+            <a id="home-tab" class="active nav-link" data-toggle="tab" href="#home">1. Know you better</a>
+        </li>
+        <li class="nav-item">
+            <a id="profile-tab" class="nav-link" data-toggle="tab" href="#profile"><span class="pull-left"> ></span>
+                2. Personal Details</a>
+        </li>
+        <li></li>
+    </ul>
+    <form [formGroup]="surveyForm" class="was-validated" (ngSubmit)="submit()" novalidate>
+        <!-- Tab panes -->
+        <div class="tab-content clearfix profile-font-style" style="padding: 20px 40px;">
+            <div class="tab-pane active" role="tabpanel" id="home">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="welcome-msg row">
+                            <div class="intro-img pull-left col-md-1">
+                                <img class="rounded-circle" src="assets/img/user.jpg" style="width: 53px;">
+                            </div>
+                            <div class="into-content col-md-11">
+                                <span>Welcome there, my name is <span style="font-weight: bold;">{{ QRIdInfo?.userName }}</span></span> <br/>
+                                <span style="font-size: 14px;color: #0DA193;">Thank you for participating in this simple profiling question and it only take less than 2 minutes of your time</span>
+                            </div>
+                        </div>
+                        <h5> {{ "INTRO" | translate }} </h5>
+                        <p class="text-muted" style="font-size: 14px;"> {{ "INTRO_DESC" | translate }}</p>
+                        <h5 style="color: #F15A22;font-size: 16px;padding: 15px 0;">*{{ "MANDATORY" | translate }}</h5>
+                        <div class="question-container">
+
+                            <div class="ques-ans">
+                                <p class="list-heading"> 1. {{ "QUESTION_1" | translate }} <span class="star">*</span></p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio11" class="form-check-input" type="radio" name="question1" formControlName="question1" value="1">
+                                            <label class="form-check-label" for="radio11">
+                                                {{ "ANSWER_1A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio12" class="form-check-input" type="radio" name="question1" formControlName="question1" value="2">
+                                            <label class="form-check-label" for="radio12">
+                                                {{ "ANSWER_1B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio13" class="form-check-input" type="radio" name="question1" formControlName="question1" value="3">
+                                            <label class="form-check-label" for="radio13">
+                                                {{ "ANSWER_1C" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">2. {{ "QUESTION_2" | translate }} </p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio21" class="form-check-input" type="radio" name="question2" formControlName="question2" value="1" />
+                                            <label class="form-check-label" for="radio21">
+                                            {{ "ANSWER_2A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio22" class="form-check-input" type="radio" name="question2" formControlName="question2" value="2" />
+                                            <label class="form-check-label" for="radio22">
+                                                {{ "ANSWER_2B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio23" class="form-check-input" type="radio" name="question2" formControlName="question2" value="3" />
+                                            <label class="form-check-label" for="radio23">
+                                            {{ "ANSWER_2C" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio24" class="form-check-input" type="radio" name="question2" formControlName="question2" value="4" />
+                                            <label class="form-check-label" for="radio24">
+                                                {{ "ANSWER_2D" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio25" class="form-check-input" type="radio" name="question2" formControlName="question2" value="5" />
+                                            <label class="form-check-label" for="radio25">
+                                                {{ "ANSWER_2E" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">3.{{ "QUESTION_3" | translate }} <span class="star">*</span></p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio31" class="form-check-input" type="radio" name="question3" formControlName="question3" value="1" />
+                                            <label class="form-check-label" for="radio31">
+                                                {{ "ANSWER_3A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio32" class="form-check-input" type="radio" name="question3" formControlName="question3" value="2" />
+                                            <label class="form-check-label" for="radio32">
+                                                {{ "ANSWER_3B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio33" class="form-check-input" type="radio" name="question3" formControlName="question3" value="3" />
+                                            <label class="form-check-label" for="radio33">
+                                                {{ "ANSWER_3C" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">4.{{ "QUESTION_4" | translate }}<span class="star">*</span> </p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio41" class="form-check-input" type="radio" name="question4" formControlName="question4" value="1" />
+                                            <label class="form-check-label" for="radio41">
+                                                {{ "ANSWER_4A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio42" class="form-check-input" type="radio" name="question4" formControlName="question4" value="2" />
+                                            <label class="form-check-label" for="radio42">
+                                                {{ "ANSWER_4B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio43" class="form-check-input" type="radio" name="question4" formControlName="question4" value="3" />
+                                            <label class="form-check-label" for="radio43">
+                                                {{ "ANSWER_4C" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">5. {{ "QUESTION_5" | translate }}<span class="star">*</span> </p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio51" class="form-check-input" type="radio" name="question5" formControlName="question5" value="1" />
+                                            <label class="form-check-label" for="radio51">
+                                                {{ "ANSWER_5A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio52" class="form-check-input" type="radio" name="question5" formControlName="question5" value="2" />
+                                            <label class="form-check-label" for="radio52">
+                                                {{ "ANSWER_5B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">6. {{ "QUESTION_6" | translate }} <span class="star">*</span></p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio61" class="form-check-input" type="radio" name="question6" formControlName="question6" value="1" />
+                                            <label class="form-check-label" for="radio61">
+                                                {{ "ANSWER_6A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio62" class="form-check-input" type="radio" name="question6" formControlName="question6" value="2" />
+                                            <label class="form-check-label" for="radio62">
+                                                {{ "ANSWER_6B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ques-ans">
+                                <p class="list-heading">7. {{ "QUESTION_7" | translate }}<span class="star">*</span></p>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio71" class="form-check-input" type="radio" name="question7" formControlName="question7" value="1" />
+                                            <label class="form-check-label" for="radio71">
+                                                {{ "ANSWER_7A" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio72" class="form-check-input" type="radio" name="question7" formControlName="question7" value="2" />
+                                            <label class="form-check-label" for="radio72">
+                                                {{ "ANSWER_7B" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio73" class="form-check-input" type="radio" name="question7" formControlName="question7" value="3" />
+                                            <label class="form-check-label" for="radio73">
+                                                {{ "ANSWER_7C" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio74" class="form-check-input" type="radio" name="question7" formControlName="question7" value="4" />
+                                            <label class="form-check-label" for="radio74">
+                                                {{ "ANSWER_7D" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input id="radio75" class="form-check-input" type="radio" name="question7" formControlName="question7" value="5" />
+                                            <label class="form-check-label" for="radio75">
+                                                {{ "ANSWER_7E" | translate }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button id="btnContinue" type="button" class="btn continue-btn" (click)="continue($event)">Continue</button>
+                </div>
+            </div>
+
+            <div class="tab-pane" role="tabpanel" id="profile">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="" style="margin-top: 20px;font-size: 15px;">
+                            <!--<h5><span class="rounded-circle name-icon" style="">S</span> Name AAA</h5> -->
+                            <h5> {{ "PERSONAL_INFO" | translate }}</h5>
+                            <p class="text-muted" style="font-size: 14px;">Please fill up following filed for us to keep you updated!</p>
+                            <h5 style="color:#F15A22;font-size: 16px;padding: 15px 0;">*{{ "MANDATORY" | translate }}</h5>
+                            <div class="follow-up-profile" style="margin-top: 20px;">
+                                <div class="mb-3">
+                                    <label for="inputName" class="form-label">{{ "NAME" | translate }}<span class="star">*</span></label>
+                                    <input id="inputName" type="text" class="form-control col-md-6" name="inputName" formControlName="inputName" aria-describedby="">
+                                </div>
+                                <div class="mb-3 input-group">
+                                    <label for="mobile" class="form-label  col-md-12" style="padding-left: 0;">{{ "CONTACT" | translate }} ({{ "CONTACTABLE" | translate }})<span class="star">*</span></label>
+                                    <input id="mobile_code" type="text" class="form-control form-group col-md-1" name="inputMobileArea" formControlName="inputMobileArea"><span>-</span>
+                                    <input id="mobile" type="text" class="form-control form-group col-md-4" name="inputMobileNo" formControlName="inputMobileNo">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">{{ "EMAIL" | translate }} ({{ "ACTIVE" | translate }})<span class="star">*</span></label>
+                                    <input id="inputEmail" type="email" class="form-control col-md-6" name="inputEmail" formControlName="inputEmail" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3 vehicle">
+                                    <label for="vehicle" class="form-label">{{ "VEHICLE" | translate }}<span class="star">*</span></label>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <div class="form-check">
+                                                <input id="vehicle1" class="form-check-input" type="radio" name="inputVehicle" formControlName="inputVehicle" value="1" />
+                                                <label class="form-check-label" for="vehicle1">
+                                                    {{ "VEHICLE_ANS1" | translate }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input id="vehicle2" class="form-check-input" type="radio" name="inputVehicle" formControlName="inputVehicle" value="2" />
+                                                <label class="form-check-label" for="vehicle2">
+                                                    {{ "VEHICLE_ANS2" | translate }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input id="vehicle3" class="form-check-input" type="radio" name="inputVehicle" formControlName="inputVehicle" value="0" />
+                                                <label class="form-check-label" for="vehicle3">
+                                                    {{ "VEHICLE_ANS3" | translate }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn">
+                                    <button id="btnBack" type="button" class="btn btn-outline-dark back-btn" (click)="back($event)">Back</button>
+                                    <button type="submit" class="btn smt-btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

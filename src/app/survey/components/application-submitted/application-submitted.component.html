@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <header>
+        <img src="/assets/icon/success.svg" style="margin-bottom: 10px;" alt="" />
+        <h3 class="bold">Profiling Question Submitted</h3>
+        <span class="grey">Thank you again for participating in our Profiling Questionnaire. Our leader will in touch with you soon.</span>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-sm-12" style="text-align: center;">
+                <div style="padding-right: 10px; display: inline-block;">
+                    <img class="rounded-circle" src="assets/img/user.jpg" style="width: 53px;">
+                </div>
+                <div style="display: inline-block;">
+                    <span style="font-size: 20px; color: #0DA193;">
+                        Following are my details if want to reach me for any enquiries:
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-2 col-lg-3 col-md-1"></div>
+            <div class="col-xl-8 col-lg-6 col-md-10">
+                <div class="row line-height">
+                    <div class="grey">My Name:</div>
+                    <div class="field-margin">{{ contact?.userName }}</div>
+                </div>
+                <div class="row line-height">
+                    <div class="grey">Agent ID:</div>
+                    <div class="field-margin">{{ contact?.userCode }}</div>
+                </div>
+                <div class="row line-height">
+                    <div class="grey">Mobile No.:</div>
+                    <div class="field-margin">{{ contact?.mobileNo }}</div>
+                </div>
+                <div class="row line-height">
+                    <div class="grey">Email Address:</div>
+                    <div class="field-margin">{{ contact?.email }}</div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-md-1"></div>
+        </div>
+    </main>
+</div>

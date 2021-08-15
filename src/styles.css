@@ -118,6 +118,14 @@ div.modal-full {
     width: 100%;
 }
 
+.grey {
+    color: #767676;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 
 /* checkmark */
 

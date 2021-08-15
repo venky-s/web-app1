@@ -19,3 +19,17 @@ export class UserProfile {
     public AvatarImage64: string | null
   ) {  }
 }
+
+export interface QRId {
+  userName: string,
+  agentCode: string,
+  avatarImage64: string
+}
+
+export class QRIdInfo {
+  constructor(
+    public qrId: string,
+    public userName: string,
+    public avatarImage64: string
+  ) { }
+}

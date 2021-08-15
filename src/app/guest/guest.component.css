@@ -64,9 +64,13 @@
     max-width: 400px;
 }
 
+.foot-note-header {
+    font-size: 12px;
+}
+
 .foot-note {
     color: #707070;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .error-login {
@@ -106,7 +110,9 @@
         background-color: #fff;
         padding: 10%;
         border-radius: 5px;
-        width: 90%;
+    }
+    .login-section-inner-wrapper-bottom {
+        padding: 10%;
     }
     .logo-mobile {
         display: block;
